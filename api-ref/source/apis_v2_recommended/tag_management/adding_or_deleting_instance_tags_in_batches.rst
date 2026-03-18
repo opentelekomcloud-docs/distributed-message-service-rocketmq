@@ -1,0 +1,161 @@
+:original_name: BatchCreateOrDeleteRocketmqTag.html
+
+.. _BatchCreateOrDeleteRocketmqTag:
+
+Adding or Deleting Instance Tags in Batches
+===========================================
+
+Function
+--------
+
+This API is used to add or delete instance tags in batches.
+
+URI
+---
+
+POST /v2/{project_id}/rocketmq/{instance_id}/tags/action
+
+.. table:: **Table 1** Path Parameters
+
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                      |
+   +=================+=================+=================+==================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | Project ID. For details about how to obtain it, see :ref:`Obtaining a Project ID <hrm-api-0011>`.                                |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | **Constraints**                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | **Range**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                              |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
+   | instance_id     | Yes             | String          | **Definition**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | Instance ID. You can call the API for querying all instances to obtain the instance ID. The instance ID is in the response body. |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | **Constraints**                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | **Range**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                |
+   |                 |                 |                 |                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                              |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
+
+Request Parameters
+------------------
+
+.. table:: **Table 2** Request body parameters
+
+   +-----------------+-----------------+---------------------------------------------------------------------------------------+-----------------------------------------------------------+
+   | Parameter       | Mandatory       | Type                                                                                  | Description                                               |
+   +=================+=================+=======================================================================================+===========================================================+
+   | action          | Yes             | String                                                                                | Operation. Only lowercase letters are supported.          |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | -  **create**: Tags are created.                          |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | -  **delete**: Tags are deleted.                          |
+   +-----------------+-----------------+---------------------------------------------------------------------------------------+-----------------------------------------------------------+
+   | tags            | Yes             | Array of :ref:`TagEntity <batchcreateordeleterocketmqtag__request_tagentity>` objects | **Definition**                                            |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | Tag list.                                                 |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | **Constraints**                                           |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | A maximum of 20 tags can be added to a RocketMQ instance. |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | **Range**                                                 |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | N/A                                                       |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | **Default Value**                                         |
+   |                 |                 |                                                                                       |                                                           |
+   |                 |                 |                                                                                       | N/A                                                       |
+   +-----------------+-----------------+---------------------------------------------------------------------------------------+-----------------------------------------------------------+
+
+.. _batchcreateordeleterocketmqtag__request_tagentity:
+
+.. table:: **Table 3** TagEntity
+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                             |
+   +=================+=================+=================+=========================================================================+
+   | key             | Yes             | String          | Tag key.                                                                |
+   |                 |                 |                 |                                                                         |
+   |                 |                 |                 | -  Must be specified.                                                   |
+   |                 |                 |                 |                                                                         |
+   |                 |                 |                 | -  Must be unique for the same instance.                                |
+   |                 |                 |                 |                                                                         |
+   |                 |                 |                 | -  Can contain 1 to 128 characters.                                     |
+   |                 |                 |                 |                                                                         |
+   |                 |                 |                 | -  Can contain letters, digits, spaces, and special characters \_.:=+-@ |
+   |                 |                 |                 |                                                                         |
+   |                 |                 |                 | -  Cannot start or end with a space.                                    |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------+
+   | value           | Yes             | String          | Tag value.                                                              |
+   |                 |                 |                 |                                                                         |
+   |                 |                 |                 | -  Can contain 0 to 255 characters.                                     |
+   |                 |                 |                 |                                                                         |
+   |                 |                 |                 | -  Can contain letters, digits, spaces, and special characters \_.:=+-@ |
+   |                 |                 |                 |                                                                         |
+   |                 |                 |                 | -  Cannot start or end with a space.                                    |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------+
+
+Response Parameters
+-------------------
+
+**Status code: 204**
+
+Tags are successfully added or deleted.
+
+None
+
+Example Requests
+----------------
+
+Creating instance tags with tag keys key1 and key2 and tag values value1 and value2
+
+.. code-block:: text
+
+   POST https://{endpoint}/v2/{project_id}/rocketmq/{instance_id}/tags/action
+
+   {
+     "action" : "create",
+     "tags" : [ {
+       "key" : "key1",
+       "value" : "value1"
+     }, {
+       "key" : "key2",
+       "value" : "value2"
+     } ]
+   }
+
+Example Responses
+-----------------
+
+None
+
+Status Codes
+------------
+
+=========== =======================================
+Status Code Description
+=========== =======================================
+204         Tags are successfully added or deleted.
+=========== =======================================
+
+Error Codes
+-----------
+
+See :ref:`Error Codes <errorcode>`.
