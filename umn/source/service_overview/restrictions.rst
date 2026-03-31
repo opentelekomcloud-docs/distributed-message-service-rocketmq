@@ -23,7 +23,6 @@ Instance
    +-----------------------------------+--------------------------------------------------------------------------+
    | Storage space                     | -  The disk type cannot be changed once the instance is created.         |
    |                                   | -  Can only be increased.                                                |
-   |                                   | -  Can be increased for up to 20 times.                                  |
    +-----------------------------------+--------------------------------------------------------------------------+
    | Broker quantity                   | Can only be increased.                                                   |
    +-----------------------------------+--------------------------------------------------------------------------+
@@ -64,8 +63,6 @@ Consumer Group
    |                                                    | When this limit is reached, no more consumer groups can be created.                                                       |
    +----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
    | Creating consumer groups, consumers, and producers | Consumer groups, consumers, and producers are generated automatically when you use the instance.                          |
-   +----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Consumer offset reset                              | You can reset the retrieval start position to any time within two days.                                                   |
    +----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
    | Resetting the consumer offset                      | Messages may be consumed more than once after the offset is reset.                                                        |
    +----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+

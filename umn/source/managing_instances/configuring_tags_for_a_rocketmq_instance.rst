@@ -40,40 +40,48 @@ Prerequisite
 
 A RocketMQ instance has been created.
 
-Adding and Deleting Tags
-------------------------
+
+Configuring Tags for a RocketMQ Instance
+----------------------------------------
 
 #. Log in to the console.
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click an instance name to go to the instance details page.
+#. Configure RocketMQ instance tags on the **Edit Tag** page in any of the following ways:
 
-#. In the navigation pane, choose **Instance** > **Tags**.
+   -  In the row containing the desired RocketMQ instance, choose **More** > **Edit Tag**.
+   -  Click a RocketMQ instance name to go to the instance overview page. In the navigation pane, choose **Instance** > **Tags**.
+   -  Click a RocketMQ instance name to go to the instance overview page. In the upper right corner, choose |image3| > **Edit Tag**.
 
-#. Perform the following operations as required:
+#. Add, edit, or delete tags as required.
 
-   -  Add a tag
+   .. table:: **Table 2** Tag operations
 
-      a. Click **Edit Tag**.
-
-      b. Click **Add Tag** to set tags with **Tag key** and **Tag value**.
-
-         You can repeat this step to add up to 20 tags.
-
-         If you have predefined tags, select predefined tag keys and values, and click **Add**.
-
-      c. Click **OK**.
-
-   -  Delete a tag
-
-      a. Click **Edit Tag**.
-      b. Click **Delete** next to the tag to be deleted.
-      c. Click **OK**.
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Operation                         | Procedure                                                                                                                                                           |
+      +===================================+=====================================================================================================================================================================+
+      | Adding a tag                      | a. Click **Add Tag** to set tags with **Tag key** and **Tag value**. If you have predefined tags, select a predefined pair of tag key and value, and click **Add**. |
+      |                                   |                                                                                                                                                                     |
+      |                                   |    A maximum of **20 tags** can be added.                                                                                                                           |
+      |                                   |                                                                                                                                                                     |
+      |                                   | b. Click **OK**.                                                                                                                                                    |
+      |                                   |                                                                                                                                                                     |
+      |                                   |    View the new tag on the **Edit Tag** or tag list page.                                                                                                           |
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Editing a tag                     | Modify the tag key and value, and click **OK**.                                                                                                                     |
+      |                                   |                                                                                                                                                                     |
+      |                                   | View the edited tag on the **Edit Tag** or tag list page.                                                                                                           |
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Deleting a tag                    | In the row containing the tag to be deleted, click **Delete**. Then, click **OK** to delete the tag.                                                                |
+      |                                   |                                                                                                                                                                     |
+      |                                   | The tags are deleted when they are no longer displayed on the **Edit Tag** page and tag list.                                                                       |
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png
+.. |image3| image:: /_static/images/en-us_image_0000002435187988.png

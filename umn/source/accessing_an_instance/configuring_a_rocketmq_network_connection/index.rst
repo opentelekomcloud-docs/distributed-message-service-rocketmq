@@ -2,8 +2,8 @@
 
 .. _hrm-ug-068:
 
-Configuring RocketMQ Network Connections
-========================================
+Configuring a RocketMQ Network Connection
+=========================================
 
 -  :ref:`RocketMQ Network Connection Conditions <hrm-ug-075>`
 -  :ref:`Configuring Public Access for a RocketMQ Instance <hrm-ug-033>`

@@ -10,8 +10,7 @@ After creating a consumer group, you can modify its configuration as required.
 Prerequisite
 ------------
 
--  A RocketMQ instance has been created.
--  A consumer group has been :ref:`created <hrm-ug-013>`.
+:ref:`A consumer group has been created <hrm-ug-013>`.
 
 
 Modifying RocketMQ Consumer Group Configurations
@@ -21,11 +20,11 @@ Modifying RocketMQ Consumer Group Configurations
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Consumer Groups**.
 
@@ -56,6 +55,10 @@ Modifying RocketMQ Consumer Group Configurations
       | Orderly                           | If this option is enabled, consumers consume messages in sequence.                                                                                                                                                                                            |
       |                                   |                                                                                                                                                                                                                                                               |
       |                                   | Orderly consumption ensures sequential consumption by message sending. In this case, earlier messages are consumed before later messages                                                                                                                      |
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Description                       | Description of the consumer group.                                                                                                                                                                                                                            |
+      |                                   |                                                                                                                                                                                                                                                               |
+      |                                   | 0-200 characters                                                                                                                                                                                                                                              |
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #. Click **OK**.

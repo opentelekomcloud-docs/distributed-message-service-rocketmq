@@ -8,25 +8,25 @@ RocketMQ Network Connection Conditions
 A client can connect to a RocketMQ instance over a public or private network. Notes before using a private network:
 
 -  By default, a client and a RocketMQ instance are interconnected when they are deployed in a VPC.
--  If they are not, you need to interconnect them because of isolation among VPCs.
+-  If they are not in the same VPC, interconnect their VPCs. VPCs are isolated from each other.
 
-:ref:`Table 1 <hrm-ug-075__table870241333211>` lists how a client can connect to a RocketMQ instance.
+:ref:`Table 1 <hrm-ug-075__table870241333211>` lists the modes of client connections to a RocketMQ instance.
 
 .. _hrm-ug-075__table870241333211:
 
 .. table:: **Table 1** Connection modes
 
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-   | Mode           | How To Do                                                                                                                                      | Reference                                                                                              |
-   +================+================================================================================================================================================+========================================================================================================+
-   | Public access  | Enable public access on the RocketMQ console and configure elastic IPs (EIPs). The client can connect to the RocketMQ instance through EIPs.   | :ref:`Configuring Public Access for a RocketMQ Instance <hrm-ug-033>`                                  |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-   | Private access | A client and a RocketMQ instance are interconnected when they are deployed in a VPC.                                                           | ``-``                                                                                                  |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-   |                | When a client and a RocketMQ instance are deployed in different VPCs of the same region, interconnect two VPCs using a VPC peering connection. | `VPC Peering Connection <https://docs.otc.t-systems.com/en-us/usermanual/vpc/vpc_peering_0000.html>`__ |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
+   +----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
+   | Mode           | Implementation                                                                                                                                     | Reference                                                                                              |
+   +================+====================================================================================================================================================+========================================================================================================+
+   | Public access  | Enable public access on the RocketMQ console and configure elastic IPs (EIPs). The client can connect to the RocketMQ instance through EIPs.       | :ref:`Configuring Public Access for a RocketMQ Instance <hrm-ug-033>`                                  |
+   +----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
+   | Private access | A client and a RocketMQ instance are interconnected when they are deployed in a VPC.                                                               | ``-``                                                                                                  |
+   +----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
+   |                | When a client and a RocketMQ instance are deployed in different VPCs of the same region, interconnect the two VPCs using a VPC peering connection. | `VPC Peering Connection <https://docs.otc.t-systems.com/en-us/usermanual/vpc/vpc_peering_0000.html>`__ |
+   +----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
 
-Before connecting a client to a RocketMQ instance, allow accesses for the following security groups.
+Before connecting a client to a RocketMQ instance, configure the following security group rules.
 
 .. note::
 

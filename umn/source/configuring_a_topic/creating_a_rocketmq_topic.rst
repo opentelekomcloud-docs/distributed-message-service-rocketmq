@@ -5,10 +5,10 @@
 Creating a RocketMQ Topic
 =========================
 
-A topic is the basic unit for sending and receiving messages. After creating a RocketMQ instance, you must manually create a topic, and publish and subscribe messages. A message producer sends messages to this topic. A message consumer consumes messages by subscribing to this topic.
+A topic is the basic unit for sending and receiving messages. After creating a RocketMQ instance, you must manually create a topic, and publish and subscribe to messages. A message producer sends messages to this topic. A message consumer consumes messages by subscribing to this topic.
 
-Prerequisites
--------------
+Prerequisite
+------------
 
 A RocketMQ instance has been created.
 
@@ -19,11 +19,11 @@ Creating a Topic
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Topics**.
 

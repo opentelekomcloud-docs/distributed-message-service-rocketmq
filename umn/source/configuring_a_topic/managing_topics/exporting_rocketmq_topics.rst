@@ -7,11 +7,15 @@ Exporting RocketMQ Topics
 
 The topic list information can be exported on the RocketMQ console.
 
-Prerequisites
--------------
+Notes and Constraints
+---------------------
 
--  A RocketMQ instance has been created.
--  A topic has been :ref:`created <hrm-ug-008>`.
+The basic information about a topic, such as the topic name and description, can be exported. Changes or migration of message data in the topic is not involved.
+
+Prerequisite
+------------
+
+:ref:`A topic has been created <hrm-ug-008>`.
 
 Procedure
 ---------
@@ -20,11 +24,11 @@ Procedure
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Topics**.
 

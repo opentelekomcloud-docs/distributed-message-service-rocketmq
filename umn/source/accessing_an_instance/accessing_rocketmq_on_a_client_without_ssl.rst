@@ -5,23 +5,23 @@
 Accessing RocketMQ on a Client (Without SSL)
 ============================================
 
-This document describes how to access a RocketMQ instance with SSL disabled on the Linux CLI. When SSL is disabled, data is transmitted in plaintext between a client and a RocketMQ instance at high performance.
+This document describes how to access a RocketMQ instance with SSL disabled on the Linux CLI. When SSL is disabled, data is transmitted in plaintext between the client and the RocketMQ instance with high performance.
 
 .. _hrm-ug-039__en-us_topic_0143117204_section17830048113810:
 
 Prerequisites
 -------------
 
--  A RocketMQ instance with PLAINTEXT or PERMISSIVE for encryption has been created.
+-  A RocketMQ instance with PLAINTEXT or PERMISSIVE encryption has been created.
 
 -  The network between the client and the RocketMQ instance has been established. For details about network requirements, see :ref:`RocketMQ Network Connection Conditions <hrm-ug-075>`.
 
--  A RocketMQ instance has been created and its connection address has been obtained.
+-  You have obtained the RocketMQ instance connection address.
 
-   The connection address can be obtained from **Basic Information** > **Connection** on the RocketMQ console.
+   The connection address can be obtained from **Overview** > **Connection** on the RocketMQ console.
 
-   -  If the client uses TCP, obtain **Instance Address (Private Network)** or **Instance Address (Public Network)**.
-   -  If the client uses gPRC, obtain **gRPC Connection Address** or **gRPC Connection Address (Public Network)**.
+   -  If the client uses TCP, obtain **Instance Address (Private Network) IPv4** or **Instance Address (Public Network)**.
+   -  If the client uses gRPC, obtain **gRPC Connection Address IPv4** or **gRPC Connection Address (Public Network)**.
 
 -  :ref:`Security group rules <hrm-ug-002__table068716651714>` have been configured.
 
@@ -40,7 +40,7 @@ Accessing the Instance with CLI
 
    .. code-block::
 
-      wget https://dms-demos.obs.eu-de.otc.t-systems.com/rocketmq-tutorial.zip
+      wget https://dms-demo.obs.eu-de.otc.t-systems.com/rocketmq-tutorial.zip
 
 #. Decompress the **rocketmq-tutorial** package.
 
@@ -57,7 +57,7 @@ Accessing the Instance with CLI
       accessKey:*******
       secretKey:*******
 
-   **accessKey** and **secretKey** are the username and secret key set on the **Users** page of the console. For details, see :ref:`Creating a User <hrm-ug-035__section491614421020>`.
+   **accessKey** and **secretKey** are the username and secret key set on the **Instance** > **Users** page of the console. For details, see :ref:`Creating a User <hrm-ug-035__section491614421020>`.
 
 #. Go to the **rocketmq-tutorial/bin** directory.
 
@@ -133,7 +133,7 @@ Accessing the Instance with CLI
 
    |image3|
 
-#. Retrieve messages and send the message traces using the sample project.
+#. Consume messages and send the message traces using the sample project.
 
    .. code-block::
 

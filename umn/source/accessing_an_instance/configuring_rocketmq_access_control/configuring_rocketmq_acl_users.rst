@@ -7,11 +7,10 @@ Configuring RocketMQ ACL Users
 
 To produce and consume messages to RocketMQ instances with ACL enabled, add ACL users. You can create multiple users and assign different topic and consumer group permissions to them.
 
-Prerequisites
--------------
+Prerequisite
+------------
 
--  A RocketMQ instance has been created.
--  :ref:`ACL <hrm-ug-070>` has been enabled.
+:ref:`ACL has been enabled <hrm-ug-070>`.
 
 .. _hrm-ug-035__section491614421020:
 
@@ -22,11 +21,11 @@ Creating a User
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance name to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Users**.
 
@@ -89,11 +88,11 @@ Modifying User Information
 
 #. Click |image3| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance name to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Users**.
 
@@ -112,11 +111,11 @@ Exporting Users
 
 #. Click |image5| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image6| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image6| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance name to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Users**.
 
@@ -134,11 +133,11 @@ Deleting a user will remove its authorization relationship and disconnect it fro
 
 #. Click |image7| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image8| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image8| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance name to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Users**.
 

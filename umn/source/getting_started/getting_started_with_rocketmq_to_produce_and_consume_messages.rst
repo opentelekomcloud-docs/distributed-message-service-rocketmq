@@ -5,7 +5,7 @@
 Getting Started with RocketMQ to Produce and Consume Messages
 =============================================================
 
-This document takes the example of creating a RocketMQ instance with SSL enabled and accessing it on a client in the same VPC as the instance over a private network for message production and consumption to get you quickly started with Distributed Message Service (DMS).
+This document takes the example of creating a RocketMQ instance with SSL enabled and accessing it on a client in the same VPC as the instance over a private network for message production and consumption to get you quickly started with Distributed Message Service (DMS) for RocketMQ.
 
 Procedure
 ---------
@@ -89,7 +89,7 @@ Step 1: Preparations
 
          .. note::
 
-            Use Oracle JDK instead of ECS's default JDK (for example, OpenJDK), because ECS's default JDK may not be suitable for the sample project. Obtain Oracle JDK 1.8.111 or later from `Oracle's official website <https://www.oracle.com/java/technologies/downloads/#java8>`__.
+            Use Oracle JDK instead of default ECS JDK (for example, OpenJDK), because it may not be suitable for the sample project. Obtain Oracle JDK 1.8.111 or later from `Oracle's official website <https://www.oracle.com/java/technologies/downloads/#java8>`__.
 
       #. Run the following command to decompress the JDK package.
 
@@ -144,7 +144,7 @@ Step 1: Preparations
 
       .. code-block::
 
-         wget https://dms-demos.obs.eu-de.otc.t-systems.com/rocketmq-tutorial.zip
+         wget https://dms-demo.obs.eu-de.otc.t-systems.com/rocketmq-tutorial.zip
 
    f. Run the following command to decompress **rocketmq-tutorial**.
 
@@ -186,7 +186,7 @@ Before using RocketMQ for message production and consumption, create a RocketMQ 
       +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Version                           | Select an instance version. Select **5.x**.                                                                                                                      |
       |                                   |                                                                                                                                                                  |
-      |                                   | Fixed once the instance is created. Use the same version as your client.                                                                                         |
+      |                                   | Fixed once the RocketMQ instance is created. Use the same version as your client.                                                                                |
       +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Instance Type                     | Select an instance type. Select **Basic** here.                                                                                                                  |
       +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -228,7 +228,7 @@ Before using RocketMQ for message production and consumption, create a RocketMQ 
 
 #. .. _hrm-qs-001__li1379314018135:
 
-   Record the instance connection addresses for later use.
+   Record the instance connection addresses from the **Connection** area for later use.
 
 
    .. figure:: /_static/images/en-us_image_0000002374122761.png
@@ -243,7 +243,7 @@ Step 3: Create a Topic
 
 A topic is the basic unit for sending and receiving messages. After creating a RocketMQ instance, you must manually create topics before creating and retrieving messages.
 
-#. Click a RocketMQ instance to go to the instance page.
+#. Click a RocketMQ instance to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Topics**.
 
@@ -286,7 +286,7 @@ Step 4: Connect to a RocketMQ Instance to Produce and Consume Messages
 
       JAVA_OPT=-Dtls.enable=true sh mqadmin sendMessage -n "10.xxx.xxx.89:8100;10.xxx.xxx.144:8100" -t Topic01 -p "hello rocketmq"
 
-   -  **10.xxx.xxx.89:8100;10.xxx.xxx.144:8100**: the connection address of the RocketMQ instance, that is, the connection address in :ref:`7 <hrm-qs-001__li1379314018135>`.
+   -  **10.xxx.xxx.89:8100;10.xxx.xxx.144:8100**: the **connection address** of the RocketMQ instance, that is, the connection address in :ref:`7 <hrm-qs-001__li1379314018135>`.
    -  **Topic01**: name of the topic created in :ref:`4 <hrm-qs-001__li11652913193216>` for the RocketMQ instance.
    -  **hello rocketmq**: the produced message content, can be customized.
 

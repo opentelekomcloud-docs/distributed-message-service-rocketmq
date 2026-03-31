@@ -75,7 +75,7 @@ Method 1: Run the mqadmin Command to Export the Source Instance Metadata and The
 
          sh ./bin/mqadmin clusterList -n {nameserver address and port}
 
-      For example, if the nameserver address and port number are **192.168.0.65:8100**, run the following command:
+      For example, if the nameserver address and port are **192.168.0.65:8100**, run the following command:
 
       .. code-block::
 
@@ -123,21 +123,21 @@ Method 1: Run the mqadmin Command to Export the Source Instance Metadata and The
 
 **Migrate metadata on the console.**
 
-#. .. _hrm_ug_046__li617493110146:
-
-   Log in to the console.
+#. Log in to the console.
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Cloud Migration** > **Metadata Migration**.
 
-#. Click **Create Migration Task**.
+#. .. _hrm_ug_046__li18916441301:
+
+   Click **Create Migration Task**.
 
 #. Configure the migration task by referring to :ref:`Table 2 <hrm_ug_046__table1791434413216>`.
 
@@ -173,9 +173,6 @@ Method 1: Run the mqadmin Command to Export the Source Instance Metadata and The
    After the migration is complete, view **Task Status** in the migration task list.
 
    -  If **Task Status** is **Complete**, all metadata has been successfully migrated.
-
-      Produce and consume messages by referring to or to ensure that metadata is available.
-
    -  If **Task Status** is **Failed**, some or all metadata fails to be migrated. Click the migration task name to go to the migration task details page. In the **Migration Result** area, view the name of the topic or consumer group that fails to be migrated, the failure cause, and the solution. After the fault is rectified, perform the following steps.
 
 #. Migrate the production service to the RocketMQ instance.
@@ -188,7 +185,7 @@ Method 1: Run the mqadmin Command to Export the Source Instance Metadata and The
 
    After all messages in the consumer group are consumed, change the metadata connection address of the consumer client to the metadata connection address of the RocketMQ instance. New messages will be consumed from the RocketMQ instance.
 
-#. If there are multiple source RocketMQ instances, migrate services from them one by one by referring to :ref:`1 <hrm_ug_046__li617493110146>` to :ref:`10 <hrm_ug_046__li182171057291>`.
+#. If there are multiple source RocketMQ instances, migrate services from them one by one by referring to :ref:`6 <hrm_ug_046__li18916441301>` to :ref:`10 <hrm_ug_046__li182171057291>`.
 
 .. _hrm_ug_046__section73331941155110:
 
@@ -197,7 +194,7 @@ Method 2: Export the Source Topics and Consumer Groups and Import Them to DMS fo
 
 **Metadata of others', self-hosted, or another DMS for RocketMQ instance**
 
-#. Log in to the console of another vendor and export the lists of source topics and consumer groups.
+#. Log in to the UI of another vendor and export the lists of source topics and consumer groups.
 
 #. Create the **topics.txt** and **groups.txt** files and add the source topic list and consumer group list to the files respectively. Each line contains a topic or consumer group name. For example:
 
@@ -275,17 +272,15 @@ Method 2: Export the Source Topics and Consumer Groups and Import Them to DMS fo
 
 #. Click |image3| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Cloud Migration** > **Metadata Migration**.
 
 #. Click the task name to go to the task details page. **Migration Result** shows whether the topic and consumer group list are imported.
-
-   Produce and consume messages by referring to or to ensure that metadata is available.
 
 #. Migrate the production service to the RocketMQ instance.
 

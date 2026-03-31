@@ -15,7 +15,6 @@ A consumer's connection addresses can be viewed only when the consumer is connec
 Prerequisites
 -------------
 
--  A RocketMQ instance has been created.
 -  :ref:`A consumer group <hrm-ug-013>` has been created and there are consumers in the group.
 -  :ref:`A topic <hrm-ug-008>` has been created.
 
@@ -27,25 +26,17 @@ Viewing RocketMQ Consumer Connection Addresses
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
-#. In the navigation pane on the left, choose **Analysis & Diagnosis** > **Instance Diagnosis**.
+#. In the navigation pane, choose **Instance** > **Consumer Groups**.
 
-#. For **Consumer Group**, select the group whose consumer connection address you want to view. Then click **Start Diagnosis**.
+#. Click the desired consumer group to go to the consumer group details page.
 
-#. Locate the row containing the desired diagnosis record, and click **View**.
-
-#. In the **Results** area, view the consumer connection address.
-
-
-   .. figure:: /_static/images/en-us_image_0000002206558584.png
-      :alt: **Figure 1** Consumer connection addresses
-
-      **Figure 1** Consumer connection addresses
+#. View the consumer connection address in **Consumers**.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png
