@@ -1,11 +1,11 @@
-:original_name: hrm-pd-011.html
+:original_name: ProductDescPrivilegeManagement01.html
 
-.. _hrm-pd-011:
+.. _ProductDescPrivilegeManagement01:
 
 Permissions Management
 ======================
 
-You can use Identity and Access Management (IAM) to manage DMS permissions and control access to your resources. IAM provides identity authentication, permissions management, and access control, helping you secure access to your cloud resources.
+You can use Identity and Access Management (IAM) to manage DMS for RocketMQ permissions and control access to your resources. IAM provides identity authentication, permissions management, and access control, helping you secure access to your cloud resources.
 
 You can create IAM users for your employees, and assign permissions to these users on a principle of least privilege (PoLP) basis to control their access to specific resource types. For example, you can create IAM users for software developers and assign specific permissions to allow them to use DMS for RocketMQ resources but prevent them from being able to delete resources or perform any high-risk operations.
 
@@ -13,23 +13,23 @@ If your account does not require individual IAM users for permissions management
 
 IAM is free of charge. You pay only for the resources in your account. For more information, see `IAM Service Overview <https://docs.otc.t-systems.com/en-us/usermanual/iam/iam_01_0026.html>`__.
 
-DMS Permissions
----------------
+DMS for RocketMQ Permissions
+----------------------------
 
 By default, new IAM users do not have any permissions assigned. To assign permissions to these new users, add them to one or more groups, and attach permissions policies or roles to these groups.
 
-DMS is a project-level service deployed and accessed in specific physical regions. When assigning DMS for RocketMQ permissions to a user group, specify region-specific projects where the permissions will take effect. If you select **All projects**, the permissions will be granted for all region-specific projects. When accessing DMS, the users need to switch to a region where they have been authorized to use this service.
+DMS for RocketMQ is a project-level service deployed and accessed in specific physical regions. When assigning DMS for RocketMQ permissions to a user group, specify region-specific projects where the permissions will take effect. If you select **All projects**, the permissions will be granted for all region-specific projects. When accessing DMS for RocketMQ, the users need to switch to a region where they have been authorized to use this service.
 
 You can grant users permissions by using roles and policies.
 
 -  Roles: A type of coarse-grained authorization mechanism that provides only a limited number of service-level roles. When using roles to grant permissions, you also need to assign dependency roles. However, roles are not an ideal choice for fine-grained authorization and secure access control.
--  Policies: A fine-grained authorization strategy that defines permissions required to perform operations on specific cloud resources under certain conditions. This mechanism allows for more flexible policy-based authorization for more secure access control. For example, you can grant IAM users only the permissions for managing DMS instances. Most policies define permissions based on APIs. For the API actions supported by DMS, see `Permissions and Supported Actions <https://docs.otc.t-systems.com/en-us/api/dms/api-grant-policy.html>`__.
+-  Policies: A fine-grained authorization strategy that defines permissions required to perform operations on specific cloud resources under certain conditions. This mechanism allows for more flexible policy-based authorization for more secure access control. For example, you can grant IAM users only the permissions for managing DMS for RocketMQ instances. Most policies define permissions based on APIs. For the API actions supported by DMS for RocketMQ, see "Permissions and Supported Actions" in *Distributed Message Service for RocketMQ API Reference*.
 
-:ref:`Table 1 <hrm-pd-011__en-us_topic_0170871404_table8486434381>` lists all the system-defined roles and policies supported by DMS.
+:ref:`Table 1 <productdescprivilegemanagement01__en-us_topic_0170871404_table8486434381>` lists all the system-defined roles and policies supported by DMS for RocketMQ.
 
-.. _hrm-pd-011__en-us_topic_0170871404_table8486434381:
+.. _productdescprivilegemanagement01__en-us_topic_0170871404_table8486434381:
 
-.. table:: **Table 1** System-defined roles and policies supported by DMS
+.. table:: **Table 1** System-defined roles and policies supported by DMS for RocketMQ
 
    +----------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+----------------------------------------------------------------------------+
    | Role/Policy Name           | Description                                                                                                         | Type                  | Dependencies                                                               |
@@ -74,11 +74,11 @@ lists the common operations supported by each DMS for RocketMQ system policy or 
 Fine-grained Authorization
 --------------------------
 
-To use a custom fine-grained policy, log in to the IAM console as an administrator and select the desired fine-grained permissions for DMS. :ref:`Table 3 <hrm-pd-011__table0874182025919>` describes fine-grained permission dependencies of DMS for RocketMQRocketMQ instances in DMS.
+To use a custom fine-grained policy, log in to the IAM console as an administrator and select the desired fine-grained permissions for DMS. :ref:`Table 3 <productdescprivilegemanagement01__table0874182025919>` describes fine-grained permission dependencies of DMS for RocketMQ.
 
-.. _hrm-pd-011__table0874182025919:
+.. _productdescprivilegemanagement01__table0874182025919:
 
-.. table:: **Table 3** Fine-grained permission dependencies of DMS for RocketMQRocketMQ instances in DMS
+.. table:: **Table 3** Fine-grained permission dependencies of DMS for RocketMQ
 
    +-----------------------------------+---------------------------------+---------------------------+
    | Permission                        | Description                     | Dependency                |

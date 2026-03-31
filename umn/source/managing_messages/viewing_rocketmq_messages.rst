@@ -27,10 +27,10 @@ Prerequisites
 
 -  To query messages by message key, you need the name of the topic to which the message belongs and the message key.
 
-   Message Key is the message key configured in :ref:`7 <hrm-ug-049__li0177144134310>`. Message keys can be recorded in topic queries.
+   The message key is configured in :ref:`7 <hrm-ug-049__li0177144134310>`. Message keys can be recorded in topic queries.
 
-How to Query
-------------
+Query Modes
+-----------
 
 :ref:`Table 1 <hrm-ug-027__table9110996812>` compares three modes of query.
 
@@ -55,11 +55,11 @@ Querying the Message Content
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Message Query**.
 

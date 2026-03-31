@@ -17,7 +17,7 @@ DMS for RocketMQ 5.x Basic Edition
 The specifications of a RocketMQ 5.x basic edition instance are defined on six dimensions:
 
 -  ECS flavor: flavor of the ECS used by the instance
--  Disk type: defines the storage space. High I/O, General Purpose SSD, Extreme SSD, and ultra-high I/O types are available.
+-  Disk type: defines the storage space. High I/O, general-purpose SSD, extreme SSD, and ultra-high I/O types are available.
 -  Storage space: storage capacity the instance can use
 -  TPS: TPS performance of the instance
 -  Max. topics: number of topics allowed for the instance

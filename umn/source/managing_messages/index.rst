@@ -7,7 +7,7 @@ Managing Messages
 
 -  :ref:`Viewing RocketMQ Messages <hrm-ug-027>`
 -  :ref:`Changing RocketMQ Message Retention Period <hrm-ug-059>`
--  :ref:`Enabling and Querying RocketMQ Message Tracing <hrm-ug-028>`
+-  :ref:`Enabling RocketMQ Message Tracing and Querying Traces <hrm-ug-028>`
 -  :ref:`Verifying RocketMQ Message Consumption <hrm-ug-050>`
 -  :ref:`Managing RocketMQ Dead Letters <hrm-ug-023>`
 
@@ -17,6 +17,6 @@ Managing Messages
 
    viewing_rocketmq_messages
    changing_rocketmq_message_retention_period
-   enabling_and_querying_rocketmq_message_tracing
+   enabling_rocketmq_message_tracing_and_querying_traces
    verifying_rocketmq_message_consumption
    managing_rocketmq_dead_letters

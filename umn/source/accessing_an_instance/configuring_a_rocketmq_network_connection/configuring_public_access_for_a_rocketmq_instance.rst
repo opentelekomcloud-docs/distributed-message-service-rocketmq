@@ -24,11 +24,11 @@ Enabling Public Access
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. Click |image3| next to **Public Access** in the **Connection** area.
 
@@ -40,9 +40,9 @@ Enabling Public Access
 
 
    .. figure:: /_static/images/en-us_image_0000002338076217.png
-      :alt: **Figure 1** Instance Address (Public Network)
+      :alt: **Figure 1** Instance address (public network)
 
-      **Figure 1** Instance Address (Public Network)
+      **Figure 1** Instance address (public network)
 
    After public access is enabled, modify security group rules before attempting to access the RocketMQ instance.
 
@@ -65,11 +65,11 @@ Disabling Public Access
 
 #. Click |image7| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image8| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image8| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. Click |image9| next to **Public Access** in the **Connection** area.
 

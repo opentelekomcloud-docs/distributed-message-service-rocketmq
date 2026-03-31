@@ -67,7 +67,7 @@ DMS for RocketMQ provides four advanced features.
       8         6 min    16        2 h
       ========= ======== ========= ========
 
--  Delayed messages: After being sent from producers to DMS for RocketMQ, messages are delivered to consumers only after a **fixed period**. A producer can specify one of the 18 delay levels listed in :ref:`Table 3 <hrm-pd-001__table6746133810237>`.
+-  Delayed messages: After being sent from producers to DMS for RocketMQ, messages are delivered to consumers only after a **fixed period**. A producer can specify eighteen delay levels. :ref:`Table 3 <hrm-pd-001__table6746133810237>` lists the time at each level.
 
    .. _hrm-pd-001__table6746133810237:
 

@@ -13,7 +13,7 @@ A topic is a category of messages. It is the basic unit for creating and retriev
 Queue
 -----
 
-A topic consists of multiple queues. A larger number of queues indicates higher retrieval concurrency.
+A topic consists of multiple queues. A larger number of queues indicates higher consumption concurrency.
 
 Producer
 --------

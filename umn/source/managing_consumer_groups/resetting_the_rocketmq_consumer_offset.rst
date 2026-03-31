@@ -10,22 +10,21 @@ Resetting the RocketMQ consumer offset modifies the consumer position. Consumers
 Prerequisites
 -------------
 
--  A RocketMQ instance has been created.
 -  A topic has been :ref:`created <hrm-ug-008>`.
 -  :ref:`A consumer group <hrm-ug-013>` has been created and there are consumers in the group.
 
-Procedure
----------
+Resetting Consumer Offset
+-------------------------
 
 #. Log in to the console.
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Consumer Groups**.
 

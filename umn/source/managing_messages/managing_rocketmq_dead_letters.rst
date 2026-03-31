@@ -18,7 +18,7 @@ Prerequisites
 
 -  To query messages by message key, you need the name of the consumer group to which the message belongs and the message key.
 
-   Message Key is the message key configured in :ref:`7 <hrm-ug-049__li0177144134310>`. Message keys can be recorded in topic queries.
+   The message key is configured in :ref:`7 <hrm-ug-049__li0177144134310>`. Message keys can be recorded in topic queries.
 
 How to Query Dead Letter Messages
 ---------------------------------
@@ -29,15 +29,15 @@ How to Query Dead Letter Messages
 
 .. table:: **Table 1** Dead letter message query modes
 
-   +-------------+-----------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Search By   | Search With           | Search In  | Description                                                                                                                                                                                   |
-   +=============+=======================+============+===============================================================================================================================================================================================+
-   | Group       | Group and time range  | Range      | Based on a consumer group and time range, you can obtain all the dead letter messages meeting the query criteria in batches. Due to the large number of messages, matching is more difficult. |
-   +-------------+-----------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Message ID  | Group and message ID  | Exact mode | Based on a consumer group and message ID, you can accurately locate a dead letter message to obtain its attributes.                                                                           |
-   +-------------+-----------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Message key | Group and message key | Fuzzy mode | Dead letter messages that contain specific keys can be queried by consumer group and message key.                                                                                             |
-   +-------------+-----------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Search By   | Search With           | Description                                                                                                                                                                                   |
+   +=============+=======================+===============================================================================================================================================================================================+
+   | Group       | Group and time range  | Based on a consumer group and time range, you can obtain all the dead letter messages meeting the query criteria in batches. Due to the large number of messages, matching is more difficult. |
+   +-------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Message ID  | Group and message ID  | Based on a consumer group and message ID, you can accurately locate a dead letter message to obtain its attributes.                                                                           |
+   +-------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Message key | Group and message key | Dead letter messages that contain specific keys can be queried by consumer group and message key.                                                                                             |
+   +-------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Querying Dead Letter Messages
 -----------------------------
@@ -46,11 +46,11 @@ Querying Dead Letter Messages
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Dead Letter Queues**.
 
@@ -69,11 +69,11 @@ Messages that cannot be properly processed (consumption exception or return fail
 
 #. Click |image3| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Dead Letter Queues**.
 
@@ -91,11 +91,11 @@ Exporting Dead Letter Messages
 
 #. Click |image5| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image6| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image6| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Dead Letter Queues**.
 

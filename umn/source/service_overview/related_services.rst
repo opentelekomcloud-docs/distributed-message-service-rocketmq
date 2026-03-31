@@ -15,7 +15,7 @@ Related Services
 
 -  Cloud Trace Service (CTS)
 
-   Cloud Trace Service (CTS) generates traces to provide you with a history of operations performed on cloud service resources. The traces include operation requests sent using the management console or open APIs, as well as the operation results. You can view all generated traces to query, audit, and backtrack performed operations.
+   Cloud Trace Service (CTS) generates traces to provide you with a history of operations performed on cloud service resources. The traces include operation requests sent using the console or open APIs, as well as the operation results. You can view all generated traces to query, audit, and backtrack performed operations.
 
 -  Elastic Cloud Server (ECS)
 

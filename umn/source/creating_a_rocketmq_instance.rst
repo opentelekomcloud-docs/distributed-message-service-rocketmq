@@ -70,7 +70,7 @@ Creating a RocketMQ Instance
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest region for low latency and fast access.
 
 #. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
 
@@ -102,7 +102,7 @@ Creating a RocketMQ Instance
 
    a. **Version**: Only 5.x is available.
 
-   b. **Architecture**: Retain the default value.
+   b. **Architecture**: Retain the default value. **Single-node** and **Cluster** are available.
 
       -  **Single-node**: There is only one RocketMQ broker. The single-node architecture can only be used for testing.
       -  **Cluster**: There are multiple RocketMQ brokers.
@@ -113,7 +113,7 @@ Creating a RocketMQ Instance
 
       **The disk type is fixed once the instance is created.**
 
-      The disk type can be high I/O, ultra-high I/O, General Purpose SSD, or Extreme SSD. For details about how to select a disk type, see `Disk Types and Performance <https://docs.otc.t-systems.com/en-us/usermanual/evs/en-us_topic_0014580744.html>`__.
+      The disk type can be high I/O, ultra-high I/O, general-purpose SSD, and extreme SSD. For details about how to select a disk type, see `Disk Types and Performance <https://docs.otc.t-systems.com/en-us/usermanual/evs/en-us_topic_0014580744.html>`__.
 
 #. Configure the instance network parameters.
 
@@ -129,9 +129,9 @@ Creating a RocketMQ Instance
 
 #. Configure SSL.
 
-   -  SSL: Ciphertext access with high security, but lower performance.
-   -  PLAINTEXT: Plaintext access with high performance, but lower security.
-   -  PERMISSIVE: Both ciphertext and plaintext access, depending on the client.
+   -  **SSL**: Ciphertext access with high security, but lower performance.
+   -  **PLAINTEXT**: Plaintext access with high performance, but lower security.
+   -  **PERMISSIVE**: Both ciphertext and plaintext access, depending on the client.
 
    **The SSL setting can be changed after the instance is created.** Select a transmission mode as required.
 
@@ -139,7 +139,7 @@ Creating a RocketMQ Instance
 
    After ACL is enabled, the permissions for each user are exclusive.
 
-#. Click **Advanced Settings** to configure more parameters.
+#. Click **More Settings** to configure more parameters.
 
    -  Configure **Public Access**.
 

@@ -18,7 +18,7 @@ This section describes the procedure for granting user permissions. :ref:`Figure
 Prerequisites
 -------------
 
-Learn about the permissions (see :ref:`Permissions Management <hrm-pd-011>`) supported by DMS for RocketMQ and choose policies or roles according to your requirements. For the system policies of other services, see `Permissions <https://docs.otc.t-systems.com/en-us/permissions/index.html>`__.
+Learn about the permissions (see :ref:`Permissions Management <productdescprivilegemanagement01>`) supported by DMS for RocketMQ and choose policies or roles according to your requirements. For the system policies of other services, see `Permissions <https://docs.otc.t-systems.com/en-us/permissions/index.html>`__.
 
 **DMS for RocketMQ permissions policies are based on DMS. Therefore, when assigning permissions, select DMS permissions policies.**
 
@@ -42,13 +42,13 @@ Process Flow
 
    In the authorized region, perform the following operations:
 
-   -  Choose **Service List** > **Distributed Message Service**. Then click **Create Instance** on the console of DMS for RocketMQ. If a message appears indicating that you have insufficient permissions to perform the operation, the **DMS ReadOnlyAccess** policy is in effect.
+   -  Choose **Service List** > **Distributed Message Service for RocketMQ**. Then click **Create Instance** on the console of DMS for RocketMQ. If a message appears indicating that you have insufficient permissions to perform the operation, the **DMS ReadOnlyAccess** policy is in effect.
    -  Choose **Service List** > **Elastic Volume Service**. If a message appears indicating that you have insufficient permissions to access the service, the **DMS ReadOnlyAccess** policy is in effect.
 
 Example Custom Policies
 -----------------------
 
-Custom policies can be created to supplement the system-defined policies of DMS for RocketMQ. For the actions that can be added for custom policies, see Permissions Policies and Supported Actions.
+Custom policies can be created to supplement the system-defined policies of DMS for RocketMQ. For the actions that can be added for custom policies, see "Permissions and Supported Actions" in *Distributed Message Service for RocketMQ API Reference*.
 
 To create a custom policy, choose either visual editor or JSON.
 

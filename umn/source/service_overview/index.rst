@@ -14,7 +14,7 @@ Service Overview
 -  :ref:`Restrictions <hrm-pd-010>`
 -  :ref:`Related Services <hrm-pd-007>`
 -  :ref:`RocketMQ Concepts <hrm-pd-008>`
--  :ref:`Permissions Management <hrm-pd-011>`
+-  :ref:`Permissions Management <productdescprivilegemanagement01>`
 
 .. toctree::
    :maxdepth: 1

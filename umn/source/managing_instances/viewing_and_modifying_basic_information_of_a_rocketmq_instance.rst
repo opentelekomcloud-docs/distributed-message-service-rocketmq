@@ -5,7 +5,7 @@
 Viewing and Modifying Basic Information of a RocketMQ Instance
 ==============================================================
 
-This section describes how to view the details, and modify the basic information of a RocketMQ instance on the console.
+This section describes how to view the details and modify the basic information of a RocketMQ instance on the console.
 
 After creating a RocketMQ instance, you can modify some configurations of it as required, including the instance name, description, and security group.
 
@@ -21,11 +21,11 @@ Viewing Basic Information of a RocketMQ Instance
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Search for a RocketMQ instance by specifying the filters. Current filters include the status, name, version, instance type, specification, used/available storage space, AZ, enterprise project, and tag. For RocketMQ instance statuses, see :ref:`Table 1 <hrm-ug-004__en-us_topic_0143117211_table5086721717534>`.
+#. Search for a RocketMQ instance by specifying the condition or keyword filters. Current filters include the status, name, version, instance type, specification, used/available storage space, AZ, enterprise project, and resource tag. For RocketMQ instance statuses, see :ref:`Table 1 <hrm-ug-004__en-us_topic_0143117211_table5086721717534>`.
 
    .. _hrm-ug-004__en-us_topic_0143117211_table5086721717534:
 
@@ -51,7 +51,7 @@ Viewing Basic Information of a RocketMQ Instance
       |                                   | You cannot restart, delete, or modify an instance in the **Change failed** state. Contact customer service. |
       +-----------------------------------+-------------------------------------------------------------------------------------------------------------+
 
-#. Click a RocketMQ instance name to go to the instance basic information page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 Modifying Basic Information of a RocketMQ Instance
 --------------------------------------------------
@@ -60,11 +60,11 @@ Modifying Basic Information of a RocketMQ Instance
 
 #. Click |image3| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance name to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. Modify parameters.
 
@@ -89,23 +89,23 @@ Modifying Basic Information of a RocketMQ Instance
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Public Access                     | Click |image8| to enable or disable public access. For details, see :ref:`Configuring Public Access for a RocketMQ Instance <hrm-ug-033>`.                                  |
       |                                   |                                                                                                                                                                             |
-      |                                   | Disable the public access setting of a connected RocketMQ instance interrupts the connection. As a result, messages fail to be produced and consumed.                       |
+      |                                   | Disabling public access of a connected RocketMQ instance interrupts the connection. As a result, messages fail to be produced and consumed.                                 |
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Instance Address (Public Network) | This parameter is displayed only when public access is enabled.                                                                                                             |
       |                                   |                                                                                                                                                                             |
       |                                   | Address for connecting to the instance when public access is enabled.                                                                                                       |
       |                                   |                                                                                                                                                                             |
-      |                                   | Modify the public connection address of a connected RocketMQ instance interrupts the connection. As a result, messages fail to be produced and consumed.                    |
+      |                                   | Modifying the public connection address of a connected RocketMQ instance interrupts the connection. As a result, messages fail to be produced and consumed.                 |
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | SSL                               | Access mode of the instance, can be changed as required. For details, see :ref:`Configuring SSL of a RocketMQ Instance <hrm-ug-061>`.                                       |
+      | SSL                               | Access mode of the instance, which can be changed as required. For details, see :ref:`Configuring SSL of a RocketMQ Instance <hrm-ug-061>`.                                 |
       |                                   |                                                                                                                                                                             |
       |                                   | Options:                                                                                                                                                                    |
       |                                   |                                                                                                                                                                             |
-      |                                   | -  SSL: Ciphertext access with high security, but lower performance.                                                                                                        |
-      |                                   | -  PLAINTEXT: Plaintext access with high performance, but lower security.                                                                                                   |
-      |                                   | -  PERMISSIVE: Both ciphertext and plaintext access, depending on the client.                                                                                               |
+      |                                   | -  **SSL**: Ciphertext access with high security, but lower performance.                                                                                                    |
+      |                                   | -  **PLAINTEXT**: Plaintext access with high performance, but lower security.                                                                                               |
+      |                                   | -  **PERMISSIVE**: Both ciphertext and plaintext access, depending on the client.                                                                                           |
       |                                   |                                                                                                                                                                             |
-      |                                   | Modifying the access mode may have impact. For more information, see :ref:`Table 1 <hrm-ug-061__table5701125211560>`.                                                       |
+      |                                   | Modifying the access mode may have an impact. For more information, see :ref:`Table 1 <hrm-ug-061__table5701125211560>`.                                                    |
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | ACL                               | ACL status of the instance. Click |image9| to enable ACL. For details, see :ref:`Enabling RocketMQ ACL <hrm-ug-070>`.                                                       |
       |                                   |                                                                                                                                                                             |

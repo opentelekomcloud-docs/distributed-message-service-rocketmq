@@ -7,8 +7,8 @@ Viewing RocketMQ Monitoring Metrics
 
 Cloud Eye monitors RocketMQ instance metrics in real time. You can view these metrics on the console.
 
-Prerequisites
--------------
+Prerequisite
+------------
 
 A RocketMQ instance has been created.
 
@@ -19,19 +19,18 @@ Viewing RocketMQ Metrics
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance name to go to the instance details page.
+#. View the instance metrics in any of the following ways:
 
-#. Choose **Monitoring** in the navigation pane.
+   -  **View all monitoring data:** After a RocketMQ instance name, click **View Metric**. On the Cloud Eye console, view the metrics. Metric data is reported to Cloud Eye every minute.
+   -  **View all monitoring data:** Click a RocketMQ instance name to go to the instance overview page. In the navigation pane, choose **Monitoring**. On the displayed page, view the monitoring data. The data is updated every minute.
 
 #. View monitoring data by the instance, topics, consumer groups, and dead letter queues.
 
 #. (Optional) Click **View details** on the **By Instance**, **By Topic**, **By Consumer Group**, or **By Dead Letter Queue** tab page to go to the Cloud Eye console.
-
-   On the instance list page, you can also click **View Metric** in the row containing the desired instance to go to the Cloud Eye console.
 
    On the Cloud Eye console, you can select metrics and rearrange their order.
 

@@ -11,28 +11,28 @@ After you initiate certain instance operations listed in :ref:`Table 1 <hrm-ug-0
 
 .. table:: **Table 1** Backend task list
 
-   +-----------------------------------+----------------------------------------------+
-   | Task Name                         | Description                                  |
-   +===================================+==============================================+
-   | Creating an Instance              | Creates a RocketMQ instance.                 |
-   +-----------------------------------+----------------------------------------------+
-   | Changing SSL setting              | Changes the SSL configuration.               |
-   +-----------------------------------+----------------------------------------------+
-   | Enable public access              | Enables **Public Access**.                   |
-   +-----------------------------------+----------------------------------------------+
-   | Disable public access             | Disable **Public Access**.                   |
-   +-----------------------------------+----------------------------------------------+
-   | Modify Specifications             | -  Expands the storage space.                |
-   |                                   | -  Increases the instance flavor.            |
-   +-----------------------------------+----------------------------------------------+
-   | Deleting ConsumerGroup in Batches | Deletes multiple consumer groups in batches. |
-   +-----------------------------------+----------------------------------------------+
-   | Deleting Topics in Batches        | Deletes multiple topics in batches.          |
-   +-----------------------------------+----------------------------------------------+
-   | Restart Broker                    | Restarts brokers.                            |
-   +-----------------------------------+----------------------------------------------+
-   | Metadata Migration                | Migrates metadata.                           |
-   +-----------------------------------+----------------------------------------------+
+   +------------------------------------+----------------------------------------------+
+   | Task Name                          | Description                                  |
+   +====================================+==============================================+
+   | Creating an Instance               | Creates a RocketMQ instance.                 |
+   +------------------------------------+----------------------------------------------+
+   | Changing SSL setting               | Changes the SSL configuration.               |
+   +------------------------------------+----------------------------------------------+
+   | Enable public access               | Enables **Public Access**.                   |
+   +------------------------------------+----------------------------------------------+
+   | Disable public access              | Disable **Public Access**.                   |
+   +------------------------------------+----------------------------------------------+
+   | Modify Specifications              | -  Expands the storage space.                |
+   |                                    | -  Increases the instance flavor.            |
+   +------------------------------------+----------------------------------------------+
+   | Deleting Consumer Group in Batches | Deletes multiple consumer groups in batches. |
+   +------------------------------------+----------------------------------------------+
+   | Deleting Topics in Batches         | Deletes multiple topics in batches.          |
+   +------------------------------------+----------------------------------------------+
+   | Restart Broker                     | Restarts brokers.                            |
+   +------------------------------------+----------------------------------------------+
+   | Create Migration Task              | Creates a metadata migration task.           |
+   +------------------------------------+----------------------------------------------+
 
 Prerequisite
 ------------
@@ -46,11 +46,11 @@ Procedure
 
 #. Click |image1| in the upper left corner to select a region.
 
-   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
+   DMS instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
+#. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the DMS for RocketMQ page.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance overview page.
 
 #. In the navigation pane, choose **Instance** > **Background Tasks**.
 
