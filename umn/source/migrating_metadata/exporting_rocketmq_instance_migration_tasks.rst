@@ -2,8 +2,8 @@
 
 .. _hrm-ug-085:
 
-Exporting Migration Tasks
-=========================
+Exporting RocketMQ Instance Migration Tasks
+===========================================
 
 Scenario
 --------
@@ -23,7 +23,7 @@ Procedure
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Metadata Migration**.
+#. In the navigation pane, choose **Cloud Migration** > **Metadata Migration**.
 
 #. Export the migration task list in either of the following ways:
 

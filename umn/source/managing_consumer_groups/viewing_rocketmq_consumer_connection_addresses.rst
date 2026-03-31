@@ -15,6 +15,7 @@ A consumer's connection addresses can be viewed only when the consumer is connec
 Prerequisites
 -------------
 
+-  A RocketMQ instance has been created.
 -  :ref:`A consumer group <hrm-ug-013>` has been created and there are consumers in the group.
 -  :ref:`A topic <hrm-ug-008>` has been created.
 
@@ -32,7 +33,7 @@ Viewing RocketMQ Consumer Connection Addresses
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane on the left, choose **Instance Diagnosis**.
+#. In the navigation pane on the left, choose **Analysis & Diagnosis** > **Instance Diagnosis**.
 
 #. For **Consumer Group**, select the group whose consumer connection address you want to view. Then click **Start Diagnosis**.
 

@@ -30,27 +30,11 @@ Before connecting a client to a RocketMQ instance, allow accesses for the follow
 
 .. note::
 
-   After a security group is created, its default inbound rule allows communication among ECSs within the security group and its default outbound rule allows all outbound traffic. In this case, you can access a RocketMQ instance within a VPC, and do not need to add rules according to :ref:`Table 2 <hrm-ug-075__table161395381402>` or :ref:`Table 3 <hrm-ug-075__table068716651714>`.
-
-.. _hrm-ug-075__table161395381402:
-
-.. table:: **Table 2** Security group rules (RocketMQ 4.8.0)
-
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-   | Direction | Protocol | Port        | Source                                                | Description                                                              |
-   +===========+==========+=============+=======================================================+==========================================================================+
-   | Inbound   | TCP      | 8100        | IP address or IP address group of the RocketMQ client | The port is used for private network access to metadata nodes using TCP. |
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-   | Inbound   | TCP      | 8200        |                                                       | The port is used for public network access to metadata nodes using TCP.  |
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-   | Inbound   | TCP      | 10100-10199 |                                                       | The port is used for private access to service nodes using TCP.          |
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-   | Inbound   | TCP      | 10101-10199 |                                                       | The port is used for public access to service nodes using TCP.           |
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
+   After a security group is created, its default inbound rule allows communication among ECSs within the security group and its default outbound rule allows all outbound traffic. In this case, you can access a RocketMQ instance within a VPC, and do not need to add rules according to :ref:`Table 2 <hrm-ug-075__table068716651714>`.
 
 .. _hrm-ug-075__table068716651714:
 
-.. table:: **Table 3** Security group rules (RocketMQ 5.x)
+.. table:: **Table 2** Security group rules
 
    +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
    | Direction | Protocol | Port  | Source                                                | Description                                                          |

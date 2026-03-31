@@ -26,7 +26,7 @@ Accessing RocketMQ on the Console to Produce Messages
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Topics**.
+#. In the navigation pane, choose **Instance** > **Topics**.
 
 #. Click **Produce Message** in the row containing the desired topic. The **Produce Message** dialog box is displayed.
 

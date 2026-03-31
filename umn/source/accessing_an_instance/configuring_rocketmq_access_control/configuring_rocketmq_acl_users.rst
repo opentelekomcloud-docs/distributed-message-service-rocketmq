@@ -28,7 +28,7 @@ Creating a User
 
 #. Click a RocketMQ instance name to go to the instance details page.
 
-#. In the navigation pane, choose **Users**.
+#. In the navigation pane, choose **Instance** > **Users**.
 
 #. Click **Create User**.
 
@@ -38,101 +38,45 @@ Creating a User
 
    .. table:: **Table 1** User parameters
 
-      +------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter                          | Description                                                                                                                                                                                                                                                                                                                      |
-      +====================================+==================================================================================================================================================================================================================================================================================================================================+
-      | Name                               | Name of the user.                                                                                                                                                                                                                                                                                                                |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | A username must meet the following requirements:                                                                                                                                                                                                                                                                                 |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | -  Contains 7 to 64 characters.                                                                                                                                                                                                                                                                                                  |
-      |                                    | -  Only letters, digits, hyphens (-), and underscores (_) are allowed. The value must start with a letter.                                                                                                                                                                                                                       |
-      |                                    | -  The name must be unique.                                                                                                                                                                                                                                                                                                      |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | The name cannot be changed after the user is created.                                                                                                                                                                                                                                                                            |
-      +------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | IP Whitelist                       | Users from whitelisted IP addresses have publish/subscribe permissions for all topics and consumer groups, and their secret keys will not be verified.                                                                                                                                                                           |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | The IP whitelist can be set to specific IP addresses or network segments.                                                                                                                                                                                                                                                        |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | -  Use commas (,) to separate multiple IP addresses, for example, **192.168.1.2,192.168.2.3**.                                                                                                                                                                                                                                   |
-      |                                    | -  IP network segment, for example, **192.*.*.\***.                                                                                                                                                                                                                                                                              |
-      +------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Default Topic Permissions          | Specifies the default topic permission of a user.                                                                                                                                                                                                                                                                                |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | Options:                                                                                                                                                                                                                                                                                                                         |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | -  **None**: The topic is disabled.                                                                                                                                                                                                                                                                                              |
-      |                                    | -  **Publish**: Users can only send messages to the topic.                                                                                                                                                                                                                                                                       |
-      |                                    | -  **Subscribe**: Users can only consume messages from the topic.                                                                                                                                                                                                                                                                |
-      |                                    | -  **Publish/Subscribe**: Users can send messages to or consume them from the topic.                                                                                                                                                                                                                                             |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | The default permissions will be overwritten by the permissions configured for specific topics, if any. For example, if **Default Topic Permissions** is set to **Subscribe**, but a topic is configured with the **Publish/Subscribe** permissions, the topic's actual permissions will be **Publish/Subscribe**.                |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | Unavailable for v5.x basic edition.                                                                                                                                                                                                                                                                                              |
-      +------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Default Consumer Group Permissions | Specifies the default consumer group permission of a user.                                                                                                                                                                                                                                                                       |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | Options:                                                                                                                                                                                                                                                                                                                         |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | -  **None**: the consumer group is disabled.                                                                                                                                                                                                                                                                                     |
-      |                                    | -  **Subscribe**: The consumer group is enabled.                                                                                                                                                                                                                                                                                 |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | The default permissions will be overwritten by the permissions configured for specific consumer groups, if any. For example, if a consumer group is configured with the **None** permissions, the user will not have permissions for the consumer group, even if **Default Consumer Group Permissions** is set to **Subscribe**. |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | Unavailable for v5.x basic edition.                                                                                                                                                                                                                                                                                              |
-      +------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Secret Key                         | The user's secret key.                                                                                                                                                                                                                                                                                                           |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | The key setting rules are as follows:                                                                                                                                                                                                                                                                                            |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | -  Contains 8 to 32 characters.                                                                                                                                                                                                                                                                                                  |
-      |                                    | -  Cannot start with "-", contains at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters :literal:`\`~!@#$%^&*()-_=+\\|[{}];:'",<.>/?`                                                                                                                          |
-      |                                    | -  Cannot be the username or the username spelled backwards.                                                                                                                                                                                                                                                                     |
-      +------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Administrator                      | A user configured as the administrator will have publish/subscribe permissions for all topics and consumer groups.                                                                                                                                                                                                               |
-      |                                    |                                                                                                                                                                                                                                                                                                                                  |
-      |                                    | Unavailable for v5.x basic edition.                                                                                                                                                                                                                                                                                              |
-      +------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Parameter                         | Description                                                                                                                                                                                             |
+      +===================================+=========================================================================================================================================================================================================+
+      | Name                              | Name of the user.                                                                                                                                                                                       |
+      |                                   |                                                                                                                                                                                                         |
+      |                                   | A username must meet the following requirements:                                                                                                                                                        |
+      |                                   |                                                                                                                                                                                                         |
+      |                                   | -  Contains 7 to 64 characters.                                                                                                                                                                         |
+      |                                   | -  Only letters, digits, hyphens (-), and underscores (_) are allowed. The value must start with a letter.                                                                                              |
+      |                                   | -  The name must be unique.                                                                                                                                                                             |
+      |                                   |                                                                                                                                                                                                         |
+      |                                   | The name cannot be changed after the user is created.                                                                                                                                                   |
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | IP Whitelist                      | Users from whitelisted IP addresses have publish/subscribe permissions for all topics and consumer groups, and their secret keys will not be verified.                                                  |
+      |                                   |                                                                                                                                                                                                         |
+      |                                   | The IP whitelist can be set to specific IP addresses or network segments.                                                                                                                               |
+      |                                   |                                                                                                                                                                                                         |
+      |                                   | -  Use commas (,) to separate multiple IP addresses, for example, **192.168.1.2,192.168.2.3**.                                                                                                          |
+      |                                   | -  IP network segment, for example, **192.*.*.\***.                                                                                                                                                     |
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Administrator                     | **Enabled by default and fixed for the 5.x basic edition.**                                                                                                                                             |
+      |                                   |                                                                                                                                                                                                         |
+      |                                   | A user configured as the administrator will have publish and subscribe permissions for all topics, and the subscribe permission for consumer groups.                                                    |
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Secret Key                        | The user's secret key.                                                                                                                                                                                  |
+      |                                   |                                                                                                                                                                                                         |
+      |                                   | The key setting rules are as follows:                                                                                                                                                                   |
+      |                                   |                                                                                                                                                                                                         |
+      |                                   | -  Contains 8 to 32 characters.                                                                                                                                                                         |
+      |                                   | -  Cannot start with "-", contains at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters :literal:`\`~!@#$%^&*()-_=+\\|[{}];:'",<.>/?` |
+      |                                   | -  Cannot be the username or the username spelled backwards.                                                                                                                                            |
+      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #. Click **OK**.
-
-(Optional) Assigning Topic or Consumer Group Permissions to a User
-------------------------------------------------------------------
-
-Users are created with default topic and consumer group permissions. To modify the default permissions, reset them here. By default, the administrator has all permissions.
-
-**Unavailable for v5.x basic edition.**
-
-#. Click a user to go to the user details page.
-
-#. On the **Topic Permissions** or **Consumer Group Permissions** tab page, click **Add**.
-
-#. Select desired topics or consumer groups, select the required permissions, and click **OK**.
-
-   These permissions overwrite the default permissions. For example, in :ref:`Figure 1 <hrm-ug-035__fig02161358114311>`, users finally have publish/subscribe permissions for topic **test01**.
-
-   .. _hrm-ug-035__fig02161358114311:
-
-   .. figure:: /_static/images/en-us_image_0000002241746861.png
-      :alt: **Figure 1** User details page
-
-      **Figure 1** User details page
-
-   .. note::
-
-      The following operations can also be performed on the **Topic Permissions** or **Consumer Group Permissions** tab page.
-
-      -  Exporting the topic or consumer group list: Choose **Export** > **Export all data to an XLSX file** or **Export** > **Export selected data to an XLSX file**.
-      -  Deleting topics or consumer groups in either of the following ways:
-
-         -  In the row containing the topic or consumer group to be deleted, click **Delete**.
-         -  Select the topics or consumer groups to be deleted and click **Delete** in the upper left corner.
 
 Accessing the Server as a User
 ------------------------------
 
-After ACL is enabled for an instance, user authentication information must be added to both the producer and consumer configurations. For details, see the following instructions:
+After ACL is enabled for an instance, user authentication information must be added to both the producer and consumer configurations. To enable ACL using Java, Go, or Python, refer to the following documents:
 
 -  Section "Java" > "Controlling Access with ACL" in *Distributed Message Service for RocketMQ Developer Guide*
 -  Section "Go" > "Controlling Access with ACL" in Distributed Message Service for RocketMQ Developer Guide
@@ -149,9 +93,9 @@ Modifying User Information
 
 #. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance details page.
 
-#. In the navigation pane, choose **Users**.
+#. In the navigation pane, choose **Instance** > **Users**.
 
 #. In the row containing the desired user, click **Edit**.
 
@@ -172,9 +116,9 @@ Exporting Users
 
 #. Click |image6| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance details page.
 
-#. In the navigation pane, choose **Users**.
+#. In the navigation pane, choose **Instance** > **Users**.
 
 #. Export the user list in either of the following ways:
 
@@ -194,9 +138,9 @@ Deleting a user will remove its authorization relationship and disconnect it fro
 
 #. Click |image8| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
 
-#. Click a RocketMQ instance to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance details page.
 
-#. In the navigation pane, choose **Users**.
+#. In the navigation pane, choose **Instance** > **Users**.
 
 #. In the row containing the desired user, click **Delete**.
 

@@ -10,7 +10,8 @@ After a consumer group is created, you can query its configuration and status on
 Prerequisite
 ------------
 
-:ref:`A consumer group <hrm-ug-013>` has been created.
+-  A RocketMQ instance has been created.
+-  A consumer group has been :ref:`created <hrm-ug-013>`.
 
 
 Viewing RocketMQ Consumer Group Details
@@ -26,13 +27,13 @@ Viewing RocketMQ Consumer Group Details
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Consumer Groups**.
+#. In the navigation pane, choose **Instance** > **Consumer Groups**.
 
 #. Click the desired consumer group to go to the consumer group details page.
 
-   In the upper part of the page, you can view the consumer group name, brokers (for RocketMQ 4.8.0 only), the maximum number of retries, the description, the orderly consumption (for RocketMQ 5.x only), and whether messages are broadcast.
+   In the upper part of the page, you can view the consumer group name, the maximum number of retries, orderly consumption, and whether messages are broadcast.
 
-   In the lower part of the page, you can view the consumer group information, all topics subscribed by the consumer group, the authentication information, and the subscription relationships.
+   In the lower part of the page, you can view the consumer group information, all topics subscribed by the consumer group, user permissions, and subscriptions.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png

@@ -5,6 +5,8 @@
 Application Scenarios
 =====================
 
+For synchronization links that require real-time results, Remote Procedure Call (RPC) is recommended.
+
 E-Commerce
 ----------
 
@@ -30,7 +32,7 @@ Unlike traditional finance, Internet finance requires fast responses to the rapi
 IoT
 ---
 
-Massive device access is typical in IoT scenarios. A massive number of devices bring in massive amounts of data. However, each service component only desires specific data. Therefore, it is important to quickly identify data that services desire from a large amount of data. To address this challenge, DMS for RocketMQ provides message filtering. When sent from devices, messages are tagged to specify the message type. Services can specify only the desired types of messages to retrieve.
+Massive device access is typical in IoT scenarios. A massive number of devices bring in massive amounts of data. However, each service component only desires specific data. Therefore, it is important to quickly identify data that services desire from a large amount of data. To address this challenge, DMS for RocketMQ provides message filtering. When sent from devices, messages are tagged to specify the message type. Services can specify only the desired types of messages to consume.
 
 |image3|
 

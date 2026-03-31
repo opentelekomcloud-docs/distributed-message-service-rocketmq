@@ -7,7 +7,7 @@ Configuring Tags for a RocketMQ Instance
 
 Tags facilitate RocketMQ instance identification and management.
 
-You can add tags to a RocketMQ instance when creating the instance or add tags on the **Tags** tab page of the created instance. Up to 20 tags can be added to an instance. Tags can be deleted.
+You can add tags to a RocketMQ instance when creating the instance or add tags on the **Tags** tab page of the created instance. You can also delete tags that are no longer used.
 
 A tag consists of a tag key and a tag value. :ref:`Table 1 <hrm-ug-058__table193611920984>` lists the tag key and value requirements.
 
@@ -27,7 +27,13 @@ A tag consists of a tag key and a tag value. :ref:`Table 1 <hrm-ug-058__table193
    +-----------------------------------+-----------------------------------------------------------------------------+
    | Tag value                         | -  Can contain 0 to 255 characters.                                         |
    |                                   | -  Can contain letters, digits, spaces, and special characters ``_.:/=+-@`` |
+   |                                   | -  Cannot start or end with a space in instance creation.                   |
    +-----------------------------------+-----------------------------------------------------------------------------+
+
+Notes and Constraints
+---------------------
+
+A maximum of 20 tags can be added.
 
 Prerequisite
 ------------
@@ -47,34 +53,27 @@ Adding and Deleting Tags
 
 #. Click an instance name to go to the instance details page.
 
-#. In the navigation pane, choose **Tags**.
-
-   View the tags of the instance.
+#. In the navigation pane, choose **Instance** > **Tags**.
 
 #. Perform the following operations as required:
 
    -  Add a tag
 
-      a. Click **Create/Edit Tag**.
+      a. Click **Edit Tag**.
 
-      b. Enter a tag key and a tag value, and click **Add**.
+      b. Click **Add Tag** to set tags with **Tag key** and **Tag value**.
 
-         If you have predefined tags, select a predefined pair of tag key and value, and click **Add**.
+         You can repeat this step to add up to 20 tags.
+
+         If you have predefined tags, select predefined tag keys and values, and click **Add**.
 
       c. Click **OK**.
 
    -  Delete a tag
 
-      Delete a tag in any of the following ways:
-
-      -  In the row containing the tag to be deleted, click **Delete**. Click **OK**.
-
-      -  Click **Create/Edit Tag**. In the dialog box that is displayed, click |image3| next to the tag to be deleted and click **OK**.
-
-         You can delete up to 19 tags in this way.
-
-      -  To delete tags in batches, select the tags, click **Delete** on the upper left, and click **OK**.
+      a. Click **Edit Tag**.
+      b. Click **Delete** next to the tag to be deleted.
+      c. Click **OK**.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png
-.. |image3| image:: /_static/images/en-us_image_0000002313114012.png

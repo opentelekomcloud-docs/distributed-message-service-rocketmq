@@ -13,22 +13,6 @@ DMS for RocketMQ has the following features:
 -  Abundant messaging functions, including ordered message delivery, delayed messages, scheduled messages, message retry, dead letter messages, and transactional messages, which meet diverse needs in e-commerce and finance scenarios.
 -  Monitoring and analysis functions, including message tracing, message tracking, trace analysis, dead letter message export, monitoring and alarms, which allow you to monitor your services and keep them up and running.
 
-Product Architecture
---------------------
-
-
-.. figure:: /_static/images/en-us_image_0000001462827681.png
-   :alt: **Figure 1** Product architecture (of a v4.8.0 instance)
-
-   **Figure 1** Product architecture (of a v4.8.0 instance)
-
-Architecture description:
-
--  Brokers receive and store messages sent by producers or forward messages to consumers. A broker consists of one master and two slave nodes.
--  NameServers receive and store broker metadata.
--  Producers obtain metadata from NameServers and send messages to brokers.
--  Consumers obtain metadata from NameServers and then pull messages from brokers.
-
 Message Types
 -------------
 
@@ -103,4 +87,4 @@ DMS for RocketMQ provides four advanced features.
       9           5 min 18          2 h
       =========== ===== =========== ======
 
--  Scheduled messages: After being sent from producers to DMS for RocketMQ, messages are delivered to consumers only after a specified time point. In DMS for RocketMQ, you can schedule messages to be delivered at **any time** within one year. You can also cancel scheduled messages.
+-  Scheduled messages: After being sent from producers to DMS for RocketMQ, messages are delivered to consumers only after a specified time point. DMS for RocketMQ supports message scheduling at **any time**. It can be scheduled up to seven days later. The scheduling can be canceled.

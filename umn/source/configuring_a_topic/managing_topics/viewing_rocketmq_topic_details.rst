@@ -11,7 +11,7 @@ Prerequisites
 -------------
 
 -  A RocketMQ instance has been created.
--  A topic has been created.
+-  A topic has been :ref:`created <hrm-ug-008>`.
 
 Viewing Topic Details
 ---------------------
@@ -26,24 +26,17 @@ Viewing Topic Details
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Topics**.
+#. In the navigation pane, choose **Instance** > **Topics**.
 
 #. Click the desired topic name to go to the topic details page.
 
-   -  RocketMQ 4.8.0: The upper part of the topic details page shows the topic name, the number of brokers, read queues, write queues, permissions, and description. The lower part of the topic details page shows the queue status on each broker, topic's consumption status, and authorization.
-   -  RocketMQ 5.x: The upper part of the topic details page shows the topic name, message type, and description. The lower part of the topic details page shows the total number of messages, deleted messages, topic's consumption status, and authorization.
+   The upper part of the topic details page shows the topic name, description, and message type. The lower part of the topic details page shows the total number of messages, deleted messages, topic's consumption status, and user permissions of this topic.
 
 
-   .. figure:: /_static/images/en-us_image_0000002206696320.png
-      :alt: **Figure 1** Topic details (RocketMQ 4.8.0)
+   .. figure:: /_static/images/en-us_image_0000002390875281.png
+      :alt: **Figure 1** Topic details
 
-      **Figure 1** Topic details (RocketMQ 4.8.0)
-
-
-   .. figure:: /_static/images/en-us_image_0000002338224953.png
-      :alt: **Figure 2** Topic details (RocketMQ 5.x)
-
-      **Figure 2** Topic details (RocketMQ 5.x)
+      **Figure 1** Topic details
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png

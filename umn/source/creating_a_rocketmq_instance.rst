@@ -10,7 +10,7 @@ RocketMQ instances are physically isolated and exclusively occupied by each tena
 Preparing Required Resources
 ----------------------------
 
-Before creating a RocketMQ instance, prepare the required resources, including a virtual private cloud (VPC), subnet, and security group with proper rules. Each RocketMQ instance is deployed in a VPC and bound to a specific subnet and security group, which provide an isolated virtual network environment and allow you to easily configure and manage security protection policies.
+Before creating a RocketMQ instance, prepare the required resources, including a virtual private cloud (VPC), subnet, and security group with proper rules. Each RocketMQ instance is deployed in a specific VPC and bound to a specific subnet and security group, which provide an isolated virtual network environment and allow you to easily configure and manage security protection policies.
 
 :ref:`Table 1 <hrm-ug-002__table121034152119>` lists the resources required by a RocketMQ instance.
 
@@ -30,9 +30,9 @@ Before creating a RocketMQ instance, prepare the required resources, including a
    +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Security group        | Different RocketMQ instances can use the same security group or different security groups.                                                                                                                                                                                                                                                | For details on how to create a security group, see . For details on how to add rules to a security group, see `Adding a Security Group Rule <https://docs.otc.t-systems.com/en-us/usermanual/vpc/en-us_topic_0030969470.html>`__.            |
    |                       |                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                              |
-   |                       | To use RocketMQ instances, add the security group rules described in :ref:`Table 2 <hrm-ug-002__table161395381402>`. You can also add other rules as required.                                                                                                                                                                            |                                                                                                                                                                                                                                              |
+   |                       | To use RocketMQ instances, add the security group rules described in :ref:`Table 2 <hrm-ug-002__table068716651714>`. Other rules can be added as required.                                                                                                                                                                                |                                                                                                                                                                                                                                              |
    |                       |                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                              |
-   |                       | After a security group is created, its default inbound rule allows communication among ECSs within the security group and its default outbound rule allows all outbound traffic. In this case, you can access a RocketMQ instance within a VPC, and do not need to add rules according to :ref:`Table 2 <hrm-ug-002__table161395381402>`. |                                                                                                                                                                                                                                              |
+   |                       | After a security group is created, its default inbound rule allows communication among ECSs within the security group and its default outbound rule allows all outbound traffic. In this case, you can access a RocketMQ instance within a VPC, and do not need to add rules according to :ref:`Table 2 <hrm-ug-002__table068716651714>`. |                                                                                                                                                                                                                                              |
    +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | EIP                   | This parameter is required to enable public access.                                                                                                                                                                                                                                                                                       | For details about how to create an EIP, see `Assigning an EIP <https://docs.otc.t-systems.com/en-us/usermanual/eip/eip_0002.html>`__.                                                                                                        |
    |                       |                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                              |
@@ -42,21 +42,25 @@ Before creating a RocketMQ instance, prepare the required resources, including a
    |                       | -  **The RocketMQ console cannot identify IPv6 EIPs.**                                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                              |
    +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. _hrm-ug-002__table161395381402:
+.. _hrm-ug-002__table068716651714:
 
-.. table:: **Table 2** Security group rules (RocketMQ 4.8.0)
+.. table:: **Table 2** Security group rules
 
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-   | Direction | Protocol | Port        | Source                                                | Description                                                              |
-   +===========+==========+=============+=======================================================+==========================================================================+
-   | Inbound   | TCP      | 8100        | IP address or IP address group of the RocketMQ client | The port is used for private network access to metadata nodes using TCP. |
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-   | Inbound   | TCP      | 8200        |                                                       | The port is used for public network access to metadata nodes using TCP.  |
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-   | Inbound   | TCP      | 10100-10199 |                                                       | The port is used for private access to service nodes using TCP.          |
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-   | Inbound   | TCP      | 10101-10199 |                                                       | The port is used for public access to service nodes using TCP.           |
-   +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
+   +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+   | Direction | Protocol | Port  | Source                                                | Description                                                          |
+   +===========+==========+=======+=======================================================+======================================================================+
+   | Inbound   | TCP      | 8100  | IP address or IP address group of the RocketMQ client | The port is used for private network access to instances using TCP.  |
+   +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+   | Inbound   | TCP      | 8200  |                                                       | The port is used for public network access to instances using TCP.   |
+   +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+   | Inbound   | TCP      | 8080  |                                                       | The port is used for private network access to instances using gRPC. |
+   +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+   | Inbound   | TCP      | 8081  |                                                       | The port is used for public network access to instances using gRPC.  |
+   +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+   | Inbound   | TCP      | 10100 |                                                       | The port is used for private access to service nodes using TCP.      |
+   +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+   | Inbound   | TCP      | 10101 |                                                       | The port is used for public access to service nodes using TCP.       |
+   +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
 
 
 Creating a RocketMQ Instance
@@ -96,20 +100,16 @@ Creating a RocketMQ Instance
 
 #. Configure the following instance parameters:
 
-   a. **Version**: Only 4.8.0 and 5.x are available.
+   a. **Version**: Only 5.x is available.
 
-   b. **Architecture**: Retain the default value. **Single-node** and **Cluster** are available in v5.x. **Cluster** is available in v4.8.0.
+   b. **Architecture**: Retain the default value.
 
       -  **Single-node**: There is only one RocketMQ broker. The single-node architecture can only be used for testing.
       -  **Cluster**: There are multiple RocketMQ brokers.
 
-   c. **Broker Flavor/Flavor**: Select the required flavor.
+   c. **Flavor**: Select the required flavor.
 
-   d. **Brokers**: Select the required number of brokers.
-
-      This parameter is required only for v4.8.0.
-
-   e. **Storage Space per Broker/Storage Space**: Disk type and total storage space of each broker.
+   d. **Storage Space**: Disk type and total storage space of each broker.
 
       **The disk type is fixed once the instance is created.**
 
@@ -165,7 +165,7 @@ Creating a RocketMQ Instance
    It takes 3 to 15 minutes to create an instance. During this period, the instance status is **Creating**.
 
    -  If the instance is created successfully, its status changes to **Running**.
-   -  If an instance fails to be created, view it in the **Instance Creation Failures** area, and delete it by referring to :ref:`Deleting a RocketMQ Instance <hrm-ug-005>` and then create a new one. If the instance creation fails again, contact customer service.
+   -  If the instance is in the **Failed** state, delete it by referring to :ref:`Deleting a RocketMQ Instance <hrm-ug-005>` and try creating another one. If the instance creation fails again, contact customer service.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png

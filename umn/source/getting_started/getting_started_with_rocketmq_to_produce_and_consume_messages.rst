@@ -53,23 +53,25 @@ Step 1: Preparations
 
    See `Creating a Security Group <https://docs.otc.t-systems.com/en-us/usermanual/vpc/en-us_topic_0013748715.html>`__.
 
-   To connect to RocketMQ instances, add the security group rules described in :ref:`Table 1 <hrm-qs-001__table1385271217300>`.
+   To connect to RocketMQ instances, add the security group rules described in :ref:`Table 1 <hrm-qs-001__table068716651714>`.
 
-   .. _hrm-qs-001__table1385271217300:
+   .. _hrm-qs-001__table068716651714:
 
    .. table:: **Table 1** Security group rules
 
-      +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-      | Direction | Protocol | Port        | Source                                                | Description                                                              |
-      +===========+==========+=============+=======================================================+==========================================================================+
-      | Inbound   | TCP      | 8100        | IP address or IP address range of the RocketMQ client | The port is used for private network access to metadata nodes using TCP. |
-      +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-      | Inbound   | TCP      | 10100-10199 |                                                       | The port is used for accessing service nodes using TCP.                  |
-      +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
+      +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+      | Direction | Protocol | Port  | Source                                                | Description                                                          |
+      +===========+==========+=======+=======================================================+======================================================================+
+      | Inbound   | TCP      | 8100  | IP address or IP address range of the RocketMQ client | The port is used for private network access to instances using TCP.  |
+      +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+      | Inbound   | TCP      | 8080  |                                                       | The port is used for private network access to instances using gRPC. |
+      +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
+      | Inbound   | TCP      | 10100 |                                                       | The port is used for private access to service nodes using TCP.      |
+      +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
 
    .. note::
 
-      After a security group is created, its default inbound rule allows communication among ECSs within the security group and its default outbound rule allows all outbound traffic. In this case, you can access a RocketMQ instance within a VPC, and do not need to add rules according to :ref:`Table 1 <hrm-qs-001__table1385271217300>`.
+      After a security group is created, its default inbound rule allows communication among ECSs within the security group and its default outbound rule allows all outbound traffic. In this case, you can access a RocketMQ instance within a VPC, and do not need to add rules according to :ref:`Table 1 <hrm-qs-001__table068716651714>`.
 
 #. Create an elastic cloud server (ECS) and configure environment variables.
 
@@ -157,7 +159,7 @@ Step 2: Create a RocketMQ Instance
 
 Before using RocketMQ for message production and consumption, create a RocketMQ instance. The VM resource in the instance store topics.
 
-#. Log in to the DMS console, choose **RocketMQ Instances** in the navigation pane, and click **Create RocketMQ Instance** in the upper right corner.
+#. Log in to the DMS for RocketMQ console and click **Create RocketMQ Instance** in the upper right.
 
 #. Set the instance information. For details, see :ref:`Table 2 <hrm-qs-001__table146166207210>`.
 
@@ -165,51 +167,51 @@ Before using RocketMQ for message production and consumption, create a RocketMQ 
 
    .. table:: **Table 2** Setting instance information
 
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter                         | Description                                                                                                                                                                                                  |
-      +===================================+==============================================================================================================================================================================================================+
-      | Region                            | For lower network latency and faster access to your resources, select the nearest region.                                                                                                                    |
-      |                                   |                                                                                                                                                                                                              |
-      |                                   | Select eu-de.                                                                                                                                                                                                |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Project                           | Projects isolate compute, storage, and network resources across geographical regions. For each region, a preset project is available.                                                                        |
-      |                                   |                                                                                                                                                                                                              |
-      |                                   | Select eu-de (default).                                                                                                                                                                                      |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | AZ                                | Select one AZ or at least three AZs.                                                                                                                                                                         |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Instance Name                     | Enter the instance name, for example, **rocketmq-test**.                                                                                                                                                     |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Enterprise Project                | An enterprise project manages project resources in groups. Enterprise projects are logically isolated. Select "default". This parameter is for enterprise users.                                             |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Version                           | Select an instance version. Select **4.8.0**.                                                                                                                                                                |
-      |                                   |                                                                                                                                                                                                              |
-      |                                   | Fixed once the instance is created. Use the same version as your client.                                                                                                                                     |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Architecture                      | Select an instance architecture. Select **Cluster** here.                                                                                                                                                    |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Broker Flavor                     | Select an instance flavor. Select **rocketmq.4u8g.cluster** here.                                                                                                                                            |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Brokers                           | Specify the instance broker quantity. Enter **1** here.                                                                                                                                                      |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Storage Space per Broker          | Specify the disk type and storage space per broker for storing RocketMQ data. Select **Ultra-high I/O** and enter **300**. Total storage space of an instance = Storage space per broker x Number of brokers |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | VPC                               | Select a VPC and a subnet. Here, select the ones created in :ref:`Step 1: Preparations <hrm-qs-001__section15630142042613>`.                                                                                 |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Security Group                    | Select the security group. Here, select the one created in :ref:`Step 1: Preparations <hrm-qs-001__section15630142042613>`.                                                                                  |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | SSL                               | Ciphertext access with high security, but lower performance. Select **SSL**.                                                                                                                                 |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | ACL                               | Enabling ACL can manage permissions for message production and consumption. Do not enable it here.                                                                                                           |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Advanced settings                 |                                                                                                                                                                                                              |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Public Access                     | EIPs are required to enable public access. Do not enable it here.                                                                                                                                            |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Tags                              | Identifiers of the RocketMQ instance. Skip it here.                                                                                                                                                          |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Description                       | Additional information about the instance. Skip it.                                                                                                                                                          |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Parameter                         | Description                                                                                                                                                      |
+      +===================================+==================================================================================================================================================================+
+      | Region                            | For lower network latency and faster access to your resources, select the nearest region.                                                                        |
+      |                                   |                                                                                                                                                                  |
+      |                                   | Select eu-de.                                                                                                                                                    |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Project                           | Projects isolate compute, storage, and network resources across geographical regions. For each region, a preset project is available.                            |
+      |                                   |                                                                                                                                                                  |
+      |                                   | Select eu-de (default).                                                                                                                                          |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | AZ                                | Select one as required. You are advised to specify multiple AZs for disaster recovery.                                                                           |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Instance Name                     | Enter the instance name, for example, **rocketmq-test**.                                                                                                         |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Enterprise Project                | An enterprise project manages project resources in groups. Enterprise projects are logically isolated. Select "default". This parameter is for enterprise users. |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Version                           | Select an instance version. Select **5.x**.                                                                                                                      |
+      |                                   |                                                                                                                                                                  |
+      |                                   | Fixed once the instance is created. Use the same version as your client.                                                                                         |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Instance Type                     | Select an instance type. Select **Basic** here.                                                                                                                  |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Architecture                      | Select an instance architecture. Select **Cluster** here.                                                                                                        |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Flavor                            | Select an instance flavor. Select **rocketmq.b2.large.4** here.                                                                                                  |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Storage Space                     | Specify the disk type and storage space for storing RocketMQ data. Select **Ultra-high I/O** and enter **300**.                                                  |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | VPC                               | Select a VPC and a subnet. Here, select the ones created in :ref:`Step 1: Preparations <hrm-qs-001__section15630142042613>`.                                     |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Security Group                    | Select the security group. Here, select the one created in :ref:`Step 1: Preparations <hrm-qs-001__section15630142042613>`.                                      |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | SSL                               | Ciphertext access with high security, but lower performance. Select **SSL**.                                                                                     |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | ACL                               | Enabling ACL can manage permissions for message production and consumption. Do not enable it here.                                                               |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Advanced settings                 |                                                                                                                                                                  |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Public Access                     | EIPs are required to enable public access. Do not enable it here.                                                                                                |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Tags                              | Identifiers of the RocketMQ instance. Skip it here.                                                                                                              |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Description                       | Additional information about the instance. Skip it.                                                                                                              |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #. Click **Create Now**.
 
@@ -222,14 +224,14 @@ Before using RocketMQ for message production and consumption, create a RocketMQ 
    -  If the instance is created successfully, its status changes to **Running**.
    -  delete it. Then create a new one. If the instance creation fails again, contact .
 
-#. After the instance is created, click its name to go to the instance basic information page.
+#. After the instance is created, click its name to go to the instance overview page.
 
 #. .. _hrm-qs-001__li1379314018135:
 
    Record the instance connection addresses for later use.
 
 
-   .. figure:: /_static/images/en-us_image_0000002230054021.png
+   .. figure:: /_static/images/en-us_image_0000002374122761.png
       :alt: **Figure 2** Recording instance connection addresses
 
       **Figure 2** Recording instance connection addresses
@@ -241,9 +243,9 @@ Step 3: Create a Topic
 
 A topic is the basic unit for sending and receiving messages. After creating a RocketMQ instance, you must manually create topics before creating and retrieving messages.
 
-#. Click a RocketMQ instance to go to the instance basic information page.
+#. Click a RocketMQ instance to go to the instance page.
 
-#. In the navigation pane, choose **Topics**.
+#. In the navigation pane, choose **Instance** > **Topics**.
 
 #. Click **Create Topic**.
 
@@ -255,23 +257,13 @@ A topic is the basic unit for sending and receiving messages. After creating a R
 
    .. table:: **Table 3** Topic parameters
 
-      +-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter   | Description                                                                                                                                                      |
-      +=============+==================================================================================================================================================================+
-      | Topic Name  | Enter a topic name. Enter **Topic01** here.                                                                                                                      |
-      +-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Permission  | Permission of the topic. Select **Publish/Subscribe** here. Producers can publish messages to this topic and consumers can consume the messages from this topic. |
-      +-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Brokers     | Associated brokers. Select **broker-0** here and enter **3** queues.                                                                                             |
-      +-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Description | Additional information about the topic. Skip it.                                                                                                                 |
-      +-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-   .. figure:: /_static/images/en-us_image_0000002232701341.png
-      :alt: **Figure 3** Creating a topic
-
-      **Figure 3** Creating a topic
+      ============ ================================================
+      Parameter    Description
+      ============ ================================================
+      Topic Name   Enter a topic name. Enter **Topic01** here.
+      Message Type Select the message type. Select **Normal** here.
+      Description  Additional information about the topic. Skip it.
+      ============ ================================================
 
 #. Click **OK**.
 

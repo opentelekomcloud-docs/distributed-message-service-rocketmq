@@ -30,45 +30,23 @@ Enabling Public Access
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. Click |image3| next to **Public Access**.
+#. Click |image3| next to **Public Access** in the **Connection** area.
 
 #. Click |image4|, in the **Elastic IP Address** area, select IP addresses as prompted, and click |image5|.
 
    If no EIP exists in the **Elastic IP Address** drop-down list box, or the EIPs are insufficient, click **Create Elastic IP** to create an EIP on the page that is displayed. After the EIP is created, return to the RocketMQ console, click |image6| next to **Elastic IP Address**, and select the new EIP from the drop-down list.
 
-
-   .. figure:: /_static/images/en-us_image_0000002231544893.png
-      :alt: **Figure 1** Enabling public access
-
-      **Figure 1** Enabling public access
-
-   After public access is enabled, **Instance Address (Public Network)** is displayed for a v4.8.0 RocketMQ instance , and **Instance Address (Public Network)** (TCP) and **gRPC Connection Address (Public Network)** (gRPC) are displayed for a v5.x RocketMQ instance.
-
-
-   .. figure:: /_static/images/en-us_image_0000002231546089.png
-      :alt: **Figure 2** Public network connection addresses (RocketMQ 4.8.0)
-
-      **Figure 2** Public network connection addresses (RocketMQ 4.8.0)
+   After public access is enabled, **Instance Address (Public Network)** and **gRPC Connection Address** will be displayed for a RocketMQ instance.
 
 
    .. figure:: /_static/images/en-us_image_0000002338076217.png
-      :alt: **Figure 3** Public network connection addresses (RocketMQ 5.x)
+      :alt: **Figure 1** Instance Address (Public Network)
 
-      **Figure 3** Public network connection addresses (RocketMQ 5.x)
+      **Figure 1** Instance Address (Public Network)
 
    After public access is enabled, modify security group rules before attempting to access the RocketMQ instance.
 
-   .. table:: **Table 1** Security group rules (RocketMQ 4.8.0)
-
-      +-----------+----------+-------------+-------------------------------------------------------+-------------------------------------------------------------------------+
-      | Direction | Protocol | Port        | Source                                                | Description                                                             |
-      +===========+==========+=============+=======================================================+=========================================================================+
-      | Inbound   | TCP      | 8200        | IP address or IP address group of the RocketMQ client | The port is used for public network access to metadata nodes using TCP. |
-      +-----------+----------+-------------+-------------------------------------------------------+-------------------------------------------------------------------------+
-      | Inbound   | TCP      | 10101-10199 |                                                       | The port is used for public access to service nodes using TCP.          |
-      +-----------+----------+-------------+-------------------------------------------------------+-------------------------------------------------------------------------+
-
-   .. table:: **Table 2** Security group rules (RocketMQ 5.x)
+   .. table:: **Table 1** Security group rules
 
       +-----------+----------+-------+-------------------------------------------------------+---------------------------------------------------------------------+
       | Direction | Protocol | Port  | Source                                                | Description                                                         |
@@ -93,23 +71,13 @@ Disabling Public Access
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. Click |image9| next to **Public Access**.
+#. Click |image9| next to **Public Access** in the **Connection** area.
 
 #. Click |image10| and then |image11| to disable public access.
 
    After public access is disabled, modify security group rules before attempting to access the RocketMQ instance over a private network.
 
-   .. table:: **Table 3** Security group rules (RocketMQ 4.8.0)
-
-      +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-      | Direction | Protocol | Port        | Source                                                | Description                                                              |
-      +===========+==========+=============+=======================================================+==========================================================================+
-      | Inbound   | TCP      | 8100        | IP address or IP address group of the RocketMQ client | The port is used for private network access to metadata nodes using TCP. |
-      +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-      | Inbound   | TCP      | 10100-10199 |                                                       | The port is used for private access to service nodes using TCP.          |
-      +-----------+----------+-------------+-------------------------------------------------------+--------------------------------------------------------------------------+
-
-   .. table:: **Table 4** Security group rules (RocketMQ 5.x)
+   .. table:: **Table 2** Security group rules
 
       +-----------+----------+-------+-------------------------------------------------------+----------------------------------------------------------------------+
       | Direction | Protocol | Port  | Source                                                | Description                                                          |

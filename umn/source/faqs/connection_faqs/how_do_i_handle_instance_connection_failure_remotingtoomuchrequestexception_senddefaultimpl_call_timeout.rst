@@ -20,7 +20,7 @@ Solution
 
 #. .. _hrm_faq_023__li1605183417015:
 
-   On the instance details page of the RocketMQ console, view the port next to **Network** > **Allow Access To**.
+   On the instance overview page on the RocketMQ console, obtain the port in **Allow Access To** in the **Network** area.
 
 #. Click the security group name to go to the security group details page.
 

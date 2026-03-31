@@ -29,7 +29,7 @@ Deleting a RocketMQ Instance
 #. Delete pay-per-use instances in either of the following ways:
 
    -  In the row containing the RocketMQ instance to be deleted, choose **More** > **Delete**.
-   -  Click a RocketMQ instance to go to the instance details page. In the upper right corner, choose **More** > **Delete**.
+   -  Click a RocketMQ instance to go to the instance details page. In the upper right corner, choose |image3| > **Delete**.
    -  To delete multiple instances at a time, select the instances, and click **Delete** above the instance list.
 
 #. In the **Delete Instance** dialog box, enter **DELETE** and click **OK**.
@@ -38,3 +38,4 @@ Deleting a RocketMQ Instance
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png
+.. |image3| image:: /_static/images/en-us_image_0000002363466617.png

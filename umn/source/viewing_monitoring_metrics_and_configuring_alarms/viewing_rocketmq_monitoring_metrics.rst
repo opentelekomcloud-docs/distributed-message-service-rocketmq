@@ -27,11 +27,9 @@ Viewing RocketMQ Metrics
 
 #. Choose **Monitoring** in the navigation pane.
 
-#. View monitoring data by the instance, brokers, topics, consumer groups, and dead letter queues.
+#. View monitoring data by the instance, topics, consumer groups, and dead letter queues.
 
-   Monitoring data by broker is displayed only for v4.8.0.
-
-#. (Optional) Click **View details** on the **By Instance**, **By Broker**, **By Topic**, **By Consumer Group**, or **By Dead Letter Queue** tab page to go to the Cloud Eye console.
+#. (Optional) Click **View details** on the **By Instance**, **By Topic**, **By Consumer Group**, or **By Dead Letter Queue** tab page to go to the Cloud Eye console.
 
    On the instance list page, you can also click **View Metric** in the row containing the desired instance to go to the Cloud Eye console.
 

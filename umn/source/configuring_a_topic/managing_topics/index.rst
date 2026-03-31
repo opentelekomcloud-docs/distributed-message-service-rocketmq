@@ -7,6 +7,7 @@ Managing Topics
 
 -  :ref:`Viewing RocketMQ Topic Details <hrm-ug-009>`
 -  :ref:`Modifying RocketMQ Topic Configurations <hrm-ug-010>`
+-  :ref:`Exporting RocketMQ Topics <hrm-ug-089>`
 -  :ref:`Deleting a RocketMQ Topic <hrm-ug-011>`
 
 .. toctree::
@@ -15,4 +16,5 @@ Managing Topics
 
    viewing_rocketmq_topic_details
    modifying_rocketmq_topic_configurations
+   exporting_rocketmq_topics
    deleting_a_rocketmq_topic
