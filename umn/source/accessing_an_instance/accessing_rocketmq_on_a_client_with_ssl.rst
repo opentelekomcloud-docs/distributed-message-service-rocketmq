@@ -5,24 +5,36 @@
 Accessing RocketMQ on a Client (With SSL)
 =========================================
 
-If SSL is enabled, data will be encrypted before transmission for enhanced security. This section describes how to use TCP to connect to a RocketMQ instance with SSL in CLI mode on Linux.
+This document describes how to access a RocketMQ instance with SSL enabled on the Linux CLI. When SSL is enabled, data is transmitted in ciphertext between a client and a RocketMQ instance with high security.
 
-Setting **SSL** to **SSL** or **PERMISSIVE** (ciphertext transmission) during instance creation or in the basic instance information enables SSL.
+.. _hrm-ug-040__en-us_topic_0143117155_section17830048113810:
 
 Prerequisites
 -------------
 
--  A RocketMQ instance has been created and you have obtained the connection addresses for intra-VPC access or public network access. For private access, use port 8100. For public access, use port 8200.
+-  A RocketMQ instance with SSL or PERMISSIVE for encryption has been created.
+
 -  The network between the client and the RocketMQ instance has been established. For details about network requirements, see :ref:`RocketMQ Network Connection Conditions <hrm-ug-075>`.
--  :ref:`Security group rules <hrm-ug-002__table161395381402>` have been configured.
+
+-  A RocketMQ instance has been created and its connection address has been obtained.
+
+   The connection address can be obtained from **Basic Information** > **Connection** on the RocketMQ console.
+
+   -  If the client uses TCP, obtain **Instance Address (Private Network)** or **Instance Address (Public Network)**.
+   -  If the client uses gPRC, obtain **gRPC Connection Address** or **gRPC Connection Address (Public Network)**.
+
+-  :ref:`Security group rules <hrm-ug-002__table068716651714>` have been configured.
+
 -  :ref:`A topic has been created <hrm-ug-008>`. The topic name has been obtained and publish and subscribe permissions are granted.
--  `JDK v1.8.111 or later <https://www.oracle.com/java/technologies/downloads/#java8>`__ has been installed on the client server, and related environment variables have been configured.
--  The client server can access the Internet to download the sample software package.
+
+-  `Java Development Kit 1.8.111 or later <https://www.oracle.com/java/technologies/downloads/#java8>`__ has been installed on the client server, and related environment variables have been configured.
+
+-  The client server must be able to access the Internet to download the sample software package.
 
 Accessing the Instance with CLI
 -------------------------------
 
-#. Log in to the client server.
+#. Log in to the client server using SSH.
 
 #. Download the **rocketmq-tutorial** software package.
 
@@ -57,19 +69,33 @@ Accessing the Instance with CLI
 
    .. code-block::
 
-      JAVA_OPT=-Dtls.enable=true sh mqadmin sendMessage -n "${Connection addresses}" -t ${Topic name} -p "hello rocketmq"
+      JAVA_OPT=-Dtls.enable=true sh mqadmin sendMessage -n "${Connection address}" -t ${Topic name} -p "Message content"
 
-   Parameter description:
+   .. _hrm-ug-040__table2032782610313:
 
-   -  **Connection addresses**: the **Instance Address** for private network access or **Instance Address (Public Network)** for public network access
-   -  **Topic name**: name of the topic created for the RocketMQ instance
-   -  **hello rocketmq**: the produced message content, can be customized.
+   .. table:: **Table 1** Message production parameters
 
-   In the following example, **11.xxx.xxx.89:8200;11.xxx.xxx.144:8200** are the metadata connection addresses for public network access to the RocketMQ instance, and **topic-test** is the topic name.
+      +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+      | Parameter             | Description                                                                                                                                               | Example Value                                                                                                    |
+      +=======================+===========================================================================================================================================================+==================================================================================================================+
+      | Connection address    | Connection address of the RocketMQ instance, which is obtained from :ref:`Prerequisites <hrm-ug-040__en-us_topic_0143117155_section17830048113810>`.      | 11.\ *xxx.xxx*.89:8200;11.\ *xxx.xxx*.144:8200 (public connection addresses as an example, private port is 8100) |
+      +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+      | Topic name            | Name of a topic created in the RocketMQ instance, which is obtained from :ref:`Prerequisites <hrm-ug-040__en-us_topic_0143117155_section17830048113810>`. | topic-test                                                                                                       |
+      +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+      | Message content       | The message content is custom.                                                                                                                            | hello rocketmq                                                                                                   |
+      |                       |                                                                                                                                                           |                                                                                                                  |
+      |                       | The maximum message size supported by RocketMQ is 4 MB. This limit cannot be modified.                                                                    |                                                                                                                  |
+      +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+
+   Run the following command with the values obtained in :ref:`Table 1 <hrm-ug-040__table2032782610313>` to produce a normal message:
 
    .. code-block::
 
       JAVA_OPT=-Dtls.enable=true sh mqadmin sendMessage -n "11.xxx.xxx.89:8200;11.xxx.xxx.144:8200" -t topic-test -p "hello rocketmq"
+
+   The message is produced when the information in the red box shown in the following figure is displayed.
+
+   |image1|
 
 #. Consume normal messages using the sample project.
 
@@ -77,37 +103,33 @@ Accessing the Instance with CLI
 
       JAVA_OPT=-Dtls.enable=true sh mqadmin consumeMessage -n "${Connection addresses}" -t ${Topic name}
 
-   Parameter description:
-
-   -  **Connection addresses**: the **Instance Address** for private network access or **Instance Address (Public Network)** for public network access
-   -  **Topic name**: name of the topic created for the RocketMQ instance
-   -  **hello rocketmq**: the produced message content, can be customized.
-
-   In the following example, **11.xxx.xxx.89:8200;11.xxx.xxx.144:8200** are the metadata connection addresses for public network access to the RocketMQ instance, and **topic-test** is the topic name.
+   Run the following command with the values obtained in :ref:`Table 1 <hrm-ug-040__table2032782610313>` to consume normal messages:
 
    .. code-block::
 
       JAVA_OPT=-Dtls.enable=true sh mqadmin consumeMessage -n "11.xxx.xxx.89:8200;11.xxx.xxx.144:8200" -t topic-test
 
-   To stop consuming messages, press **Ctrl**\ +\ **C** to exit.
+   The message is consumed when the information in the red box shown in the following figure is displayed.
+
+   |image2|
+
+   To stop consuming messages, press **Ctrl+C** to exit.
 
 #. Create messages with traces using the sample project.
 
    .. code-block::
 
-      JAVA_OPT=-Dtls.enable=true sh mqadmin sendMessage -n "${Connection addresses}" -t ${Topic name} -p "hello rocketmq" -m true
+      JAVA_OPT=-Dtls.enable=true sh mqadmin sendMessage -n "${Connection addresses}" -t ${Topic name} -p "Message content" -m true
 
-   Parameter description:
-
-   -  **Connection addresses**: the **Instance Address** for private network access or **Instance Address (Public Network)** for public network access
-   -  **Topic name**: name of the topic created for the RocketMQ instance
-   -  **hello rocketmq**: the produced message content, can be customized.
-
-   In the following example, **11.xxx.xxx.89:8200;11.xxx.xxx.144:8200** are the metadata connection addresses for public network access to the RocketMQ instance, and **topic-test** is the topic name.
+   Run the following command with the values obtained in :ref:`Table 1 <hrm-ug-040__table2032782610313>` to produce messages with traces:
 
    .. code-block::
 
       JAVA_OPT=-Dtls.enable=true sh mqadmin sendMessage -n "11.xxx.xxx.89:8200;11.xxx.xxx.144:8200" -t topic-test -p "hello rocketmq" -m true
+
+   The message is produced when the information in the red box shown in the following figure is displayed.
+
+   |image3|
 
 #. Retrieve messages and send the message traces using the sample project.
 
@@ -115,16 +137,19 @@ Accessing the Instance with CLI
 
       JAVA_OPT=-Dtls.enable=true sh mqadmin consumeMessage -n "${Connection addresses}" -t ${Topic name} -m true
 
-   Parameter description:
-
-   -  **Connection addresses**: the **Instance Address** for private network access or **Instance Address (Public Network)** for public network access
-   -  **Topic name**: name of the topic created for the RocketMQ instance
-   -  **hello rocketmq**: the produced message content, can be customized.
-
-   In the following example, **11.xxx.xxx.89:8200;11.xxx.xxx.144:8200** are the metadata connection addresses for public network access to the RocketMQ instance, and **topic-test** is the topic name.
+   Run the following command with the values obtained in :ref:`Table 1 <hrm-ug-040__table2032782610313>` to consume messages with traces:
 
    .. code-block::
 
       JAVA_OPT=-Dtls.enable=true sh mqadmin consumeMessage -n "11.xxx.xxx.89:8200;11.xxx.xxx.144:8200" -t topic-test -m true
 
-   To stop consuming messages, press **Ctrl**\ +\ **C** to exit.
+   The message is consumed when the information in the red box shown in the following figure is displayed.
+
+   |image4|
+
+   To stop consuming messages, press **Ctrl+C** to exit.
+
+.. |image1| image:: /_static/images/en-us_image_0000002371627441.png
+.. |image2| image:: /_static/images/en-us_image_0000002371707253.png
+.. |image3| image:: /_static/images/en-us_image_0000002337869086.png
+.. |image4| image:: /_static/images/en-us_image_0000002337709346.png

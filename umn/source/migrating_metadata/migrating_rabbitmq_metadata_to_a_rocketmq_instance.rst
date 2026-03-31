@@ -44,9 +44,9 @@ Step 2: Migrate Metadata on the Console
 
 #. Click |image2| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
 
-#. Click a RocketMQ instance to go to the details page.
+#. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Metadata Migration**.
+#. In the navigation pane, choose **Cloud Migration** > **Metadata Migration**.
 
 #. Click **Create Migration Task**.
 
@@ -84,6 +84,8 @@ Step 2: Migrate Metadata on the Console
    After the migration is complete, view **Task Status** in the migration task list.
 
    -  If **Task Status** is **Complete**, all metadata has been successfully migrated.
+
+      Produce and consume messages by referring to or to ensure that metadata is available.
 
    -  If **Task Status** is **Failed**, some or all metadata fails to be migrated.
 

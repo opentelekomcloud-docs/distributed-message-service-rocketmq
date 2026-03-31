@@ -1,21 +1,20 @@
-:original_name: hrm-ug-014.html
+:original_name: hrm-ug-088.html
 
-.. _hrm-ug-014:
+.. _hrm-ug-088:
 
-Viewing RocketMQ Consumer Group Details
-=======================================
+Exporting RocketMQ Consumer Groups
+==================================
 
-After a consumer group is created, you can query its configuration and status on the console.
+A consumer group list can be exported on the RocketMQ console.
 
-Prerequisite
-------------
+Prerequisites
+-------------
 
 -  A RocketMQ instance has been created.
 -  A consumer group has been :ref:`created <hrm-ug-013>`.
 
-
-Viewing RocketMQ Consumer Group Details
----------------------------------------
+Procedure
+---------
 
 #. Log in to the console.
 
@@ -29,11 +28,10 @@ Viewing RocketMQ Consumer Group Details
 
 #. In the navigation pane, choose **Instance** > **Consumer Groups**.
 
-#. Click the desired consumer group to go to the consumer group details page.
+#. Export a consumer group list in either of the following ways:
 
-   In the upper part of the page, you can view the consumer group name, the maximum number of retries, orderly consumption, and whether messages are broadcast.
-
-   In the lower part of the page, you can view the consumer group information, all topics subscribed by the consumer group, user permissions, and subscriptions.
+   -  Select the desired consumer groups and choose **Export** > **Export selected data to an XLSX file** to export a list of specified consumer groups.
+   -  Choose **Export** > **Export all data to an XLSX file** to export all consumer group lists.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png

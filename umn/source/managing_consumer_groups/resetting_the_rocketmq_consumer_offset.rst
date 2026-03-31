@@ -2,16 +2,17 @@
 
 .. _hrm-ug-051:
 
-Resetting the RocketMQ Consumption Offset
-=========================================
+Resetting the RocketMQ Consumer Offset
+======================================
 
-Resetting the consumption offset modifies the consumer position. Consumers consume messages from the modified positions.
+Resetting the RocketMQ consumer offset modifies the consumer position. Consumers consume messages from the modified positions.
 
 Prerequisites
 -------------
 
+-  A RocketMQ instance has been created.
+-  A topic has been :ref:`created <hrm-ug-008>`.
 -  :ref:`A consumer group <hrm-ug-013>` has been created and there are consumers in the group.
--  :ref:`A topic <hrm-ug-008>` has been created.
 
 Procedure
 ---------
@@ -26,7 +27,7 @@ Procedure
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Consumer Groups**.
+#. In the navigation pane, choose **Instance** > **Consumer Groups**.
 
 #. In the row containing the desired consumer group, click **Reset Consumer Offset**.
 

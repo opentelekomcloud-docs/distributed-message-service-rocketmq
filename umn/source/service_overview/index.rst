@@ -9,7 +9,6 @@ Service Overview
 -  :ref:`Product Advantages <hrm-pd-002>`
 -  :ref:`Application Scenarios <hrm-pd-003>`
 -  :ref:`Specifications <hrm-pd-004>`
--  :ref:`Instance Versions <hrm_pd_024>`
 -  :ref:`Comparing RocketMQ and Kafka <hrm-pd-005>`
 -  :ref:`Comparing DMS for RocketMQ and Open-Source RocketMQ <hrm-pd-006>`
 -  :ref:`Restrictions <hrm-pd-010>`
@@ -25,7 +24,6 @@ Service Overview
    product_advantages
    application_scenarios
    specifications
-   instance_versions
    comparing_rocketmq_and_kafka
    comparing_dms_for_rocketmq_and_open-source_rocketmq
    restrictions

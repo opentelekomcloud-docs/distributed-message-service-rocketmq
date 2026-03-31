@@ -10,7 +10,8 @@ After creating a consumer group, you can modify its configuration as required.
 Prerequisite
 ------------
 
-:ref:`A consumer group <hrm-ug-013>` has been created.
+-  A RocketMQ instance has been created.
+-  A consumer group has been :ref:`created <hrm-ug-013>`.
 
 
 Modifying RocketMQ Consumer Group Configurations
@@ -26,7 +27,7 @@ Modifying RocketMQ Consumer Group Configurations
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Consumer Groups**.
+#. In the navigation pane, choose **Instance** > **Consumer Groups**.
 
 #. Modify consumer group parameters in either of the following ways:
 
@@ -52,9 +53,7 @@ Modifying RocketMQ Consumer Group Configurations
       |                                   |                                                                                                                                                                                                                                                               |
       |                                   | If this option is enabled, each message is retrieved by all consumers in the consumer group. If this option is disabled, each message is retrieved by only one consumer in the consumer group.                                                                |
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Orderly                           | This parameter is mandatory when the RocketMQ instance version is 5.x.                                                                                                                                                                                        |
-      |                                   |                                                                                                                                                                                                                                                               |
-      |                                   | If this option is enabled, consumers consume messages in sequence.                                                                                                                                                                                            |
+      | Orderly                           | If this option is enabled, consumers consume messages in sequence.                                                                                                                                                                                            |
       |                                   |                                                                                                                                                                                                                                                               |
       |                                   | Orderly consumption ensures sequential consumption by message sending. In this case, earlier messages are consumed before later messages                                                                                                                      |
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

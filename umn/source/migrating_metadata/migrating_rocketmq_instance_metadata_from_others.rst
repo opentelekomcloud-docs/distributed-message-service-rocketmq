@@ -12,30 +12,28 @@ You can use one of the following migration methods as required:
 -  :ref:`Method 1: Run the mqadmin Command to Export the Source Instance Metadata and Then Create a Migration Task in DMS for RocketMQ <hrm_ug_046__section14542025154919>`: Run the **mqadmin** command to export the source instance metadata and then create a migration task in DMS for RocketMQ.
 -  :ref:`Method 2: Export the Source Topics and Consumer Groups and Import Them to DMS for RocketMQ Using Scripts <hrm_ug_046__section73331941155110>`: Export the source topics and consumer groups (when the **mqadmin** command cannot be used to export metadata) and import them to DMS for RocketMQ using scripts.
 
-.. note::
-
-   When metadata is imported to topics and consumer groups, they are created on all brokers. In v4.8.0, the maximum topics that can be imported through migration is the maximum topics per broker. For example, a rocketmq.4u8g.cluster instance has two brokers and the maximum topics per broker is 4000, then at most 4000 instance topics can be imported through migration.
-
 Prerequisites
 -------------
 
 -  A RocketMQ instance has been created.
 
--  A Linux host is available, `JDK v1.8.111 or later <https://www.oracle.com/java/technologies/downloads/#java8>`__ has been installed on the host, and related environment variables have been configured.
+-  A Linux host is available, `Java Development Kit 1.8.111 or later <https://www.oracle.com/java/technologies/downloads/#java8>`__ has been installed on the host, and related environment variables have been configured.
 
 -  A network environment is prepared.
 
    A RocketMQ instance can be accessed within a VPC or over a public network. For public network access, the producer and consumer must have public access permissions. Configure the security group as follows.
 
-   .. table:: **Table 1** Security group rules (RocketMQ 4.8.0)
+   .. table:: **Table 1** Security group rules
 
-      +-----------+----------+-------------+-------------------------------------------------------+-------------------------------------------------------------------------+
-      | Direction | Protocol | Port        | Source                                                | Description                                                             |
-      +===========+==========+=============+=======================================================+=========================================================================+
-      | Inbound   | TCP      | 8200        | IP address or IP address group of the RocketMQ client | The port is used for public network access to metadata nodes using TCP. |
-      +-----------+----------+-------------+-------------------------------------------------------+-------------------------------------------------------------------------+
-      | Inbound   | TCP      | 10101-10199 |                                                       | The port is used for public access to service nodes using TCP.          |
-      +-----------+----------+-------------+-------------------------------------------------------+-------------------------------------------------------------------------+
+      +-----------+----------+-------+-------------------------------------------------------+---------------------------------------------------------------------+
+      | Direction | Protocol | Port  | Source                                                | Description                                                         |
+      +===========+==========+=======+=======================================================+=====================================================================+
+      | Inbound   | TCP      | 8200  | IP address or IP address group of the RocketMQ client | The port is used for public network access to instances using TCP.  |
+      +-----------+----------+-------+-------------------------------------------------------+---------------------------------------------------------------------+
+      | Inbound   | TCP      | 8081  |                                                       | The port is used for public network access to instances using gRPC. |
+      +-----------+----------+-------+-------------------------------------------------------+---------------------------------------------------------------------+
+      | Inbound   | TCP      | 10101 |                                                       | The port is used for public access to service nodes using TCP.      |
+      +-----------+----------+-------+-------------------------------------------------------+---------------------------------------------------------------------+
 
 -  The client server can access the Internet to download the RocketMQ software package.
 
@@ -44,19 +42,19 @@ Prerequisites
 Method 1: Run the mqadmin Command to Export the Source Instance Metadata and Then Create a Migration Task in DMS for RocketMQ
 -----------------------------------------------------------------------------------------------------------------------------
 
-**Metadata of others', self-hosted, or another DMS for RocketMQ instance**
+**Metadata of self-hosted, or another DMS for RocketMQ instance**
 
 #. Log in to the prepared Linux host and download the RocketMQ software package.
 
    .. code-block::
 
-      wget https://archive.apache.org/dist/rocketmq/4.9.8/rocketmq-all-4.9.8-bin-release.zip
+      wget https://archive.apache.org/dist/rocketmq/5.3.0/rocketmq-all-5.3.0-bin-release.zip
 
 #. Decompress the software package.
 
    .. code-block::
 
-      unzip rocketmq-all-4.9.8-bin-release.zip
+      unzip rocketmq-all-5.3.0-bin-release.zip
 
 #. (Optional) If :ref:`ACL <hrm-ug-070>` is enabled for the RocketMQ instance, authentication is required when you run the **mqadmin** command.
 
@@ -71,15 +69,29 @@ Method 1: Run the mqadmin Command to Export the Source Instance Metadata and The
 
 #. Go to the directory where the decompressed software package is stored and run the following command to query the cluster name:
 
-   .. code-block::
+   -  If SSL is disabled, run the following command:
 
-      sh ./bin/mqadmin clusterList -n {nameserver address and port number}
+      .. code-block::
 
-   For example, if the nameserver address and port number are **192.168.0.65:8100**, run the following command:
+         sh ./bin/mqadmin clusterList -n {nameserver address and port}
 
-   .. code-block::
+      For example, if the nameserver address and port number are **192.168.0.65:8100**, run the following command:
 
-      sh ./bin/mqadmin clusterList -n 192.168.0.65:8100
+      .. code-block::
+
+         sh ./bin/mqadmin clusterList -n 192.168.0.65:8100
+
+   -  If SSL is enabled, run the following command:
+
+      .. code-block::
+
+         JAVA_OPT=-Dtls.enable=true sh ./bin/mqadmin clusterList -n {nameserver address and port}
+
+      For example, if the nameserver address and port are **192.168.0.65:8100**, run the following command:
+
+      .. code-block::
+
+         JAVA_OPT=-Dtls.enable=true sh ./bin/mqadmin clusterList -n 192.168.0.65:8100
 
 #. .. _hrm_ug_046__li101281515205412:
 
@@ -123,7 +135,7 @@ Method 1: Run the mqadmin Command to Export the Source Instance Metadata and The
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Metadata Migration**.
+#. In the navigation pane, choose **Cloud Migration** > **Metadata Migration**.
 
 #. Click **Create Migration Task**.
 
@@ -161,6 +173,9 @@ Method 1: Run the mqadmin Command to Export the Source Instance Metadata and The
    After the migration is complete, view **Task Status** in the migration task list.
 
    -  If **Task Status** is **Complete**, all metadata has been successfully migrated.
+
+      Produce and consume messages by referring to or to ensure that metadata is available.
+
    -  If **Task Status** is **Failed**, some or all metadata fails to be migrated. Click the migration task name to go to the migration task details page. In the **Migration Result** area, view the name of the topic or consumer group that fails to be migrated, the failure cause, and the solution. After the fault is rectified, perform the following steps.
 
 #. Migrate the production service to the RocketMQ instance.
@@ -203,13 +218,13 @@ Method 2: Export the Source Topics and Consumer Groups and Import Them to DMS fo
 
    .. code-block::
 
-      wget https://archive.apache.org/dist/rocketmq/4.9.8/rocketmq-all-4.9.8-bin-release.zip
+      wget https://archive.apache.org/dist/rocketmq/5.3.0/rocketmq-all-5.3.0-bin-release.zip
 
 #. Decompress the software package.
 
    .. code-block::
 
-      unzip rocketmq-all-4.9.8-bin-release.zip
+      unzip rocketmq-all-5.3.0-bin-release.zip
 
 #. (Optional) If :ref:`ACL <hrm-ug-070>` is enabled for the RocketMQ instance, authentication is required when you run the **mqadmin** command.
 
@@ -264,11 +279,13 @@ Method 2: Export the Source Topics and Consumer Groups and Import Them to DMS fo
 
 #. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
 
-#. Click a RocketMQ instance name to go to the instance details page.
+#. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Metadata Migration**.
+#. In the navigation pane, choose **Cloud Migration** > **Metadata Migration**.
 
 #. Click the task name to go to the task details page. **Migration Result** shows whether the topic and consumer group list are imported.
+
+   Produce and consume messages by referring to or to ensure that metadata is available.
 
 #. Migrate the production service to the RocketMQ instance.
 
@@ -277,8 +294,6 @@ Method 2: Export the Source Topics and Consumer Groups and Import Them to DMS fo
 #. Migrate the consumption service to the RocketMQ instance.
 
    After all messages in the consumer group are consumed, change the metadata connection address of the consumer client to the metadata connection address of the RocketMQ instance. New messages will be consumed from the RocketMQ instance.
-
-#. If there are multiple source RocketMQ instances, migrate services from them one by one by referring to :ref:`1 <hrm_ug_046__li617493110146>` to :ref:`10 <hrm_ug_046__li182171057291>`.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png

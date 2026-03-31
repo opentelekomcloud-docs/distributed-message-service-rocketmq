@@ -5,13 +5,13 @@
 Modifying RocketMQ Topic Configurations
 =======================================
 
-The topic permissions, brokers, and description can be modified for RocketMQ 4.8.0. The description can be modified for RocketMQ 5.x.
+The topic description can be modified as required.
 
 Prerequisites
 -------------
 
 -  A RocketMQ instance has been created.
--  A topic has been created.
+-  A topic has been :ref:`created <hrm-ug-008>`.
 
 Modifying Topic Information
 ---------------------------
@@ -26,7 +26,7 @@ Modifying Topic Information
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Topics**.
+#. In the navigation pane, choose **Instance** > **Topics**.
 
 #. Modify topic parameters in either of the following ways:
 
@@ -39,28 +39,13 @@ Modifying Topic Information
 
    .. table:: **Table 1** Topic parameters
 
-      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter                         | Description                                                                                                                                                                        |
-      +===================================+====================================================================================================================================================================================+
-      | Permission                        | Available for RocketMQ 4.8.0.                                                                                                                                                      |
-      |                                   |                                                                                                                                                                                    |
-      |                                   | Topic permission, which can be **publish/subscribe**, **publish**, or **subscribe**.                                                                                               |
-      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Brokers                           | Available for RocketMQ 4.8.0.                                                                                                                                                      |
-      |                                   |                                                                                                                                                                                    |
-      |                                   | Change the number of read queues or write queues.                                                                                                                                  |
-      |                                   |                                                                                                                                                                                    |
-      |                                   | -  Read queues: total number of available queues in the topic for reading data.                                                                                                    |
-      |                                   | -  Write queues: total number of available queues in the topic for writing data.                                                                                                   |
-      |                                   |                                                                                                                                                                                    |
-      |                                   | If an existing topic is not associated with all brokers during creation, click **Add** to distribute the topic to more brokers and set the number of read queues and write queues. |
-      |                                   |                                                                                                                                                                                    |
-      |                                   | Produced and consumed messages will be stored in new brokers.                                                                                                                      |
-      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Description                       | Topic description                                                                                                                                                                  |
-      |                                   |                                                                                                                                                                                    |
-      |                                   | 0-200 characters                                                                                                                                                                   |
-      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      +-----------------------------------+-----------------------------------+
+      | Parameter                         | Description                       |
+      +===================================+===================================+
+      | Description                       | Topic description                 |
+      |                                   |                                   |
+      |                                   | 0-200 characters                  |
+      +-----------------------------------+-----------------------------------+
 
 #. Click **OK**.
 

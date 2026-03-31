@@ -7,10 +7,11 @@ Deleting a RocketMQ Consumer Group
 
 If a consumer group is no longer used, delete it by referring to this section.
 
-Prerequisite
-------------
+Prerequisites
+-------------
 
-:ref:`A consumer group <hrm-ug-013>` has been created.
+-  A RocketMQ instance has been created.
+-  A consumer group has been :ref:`created <hrm-ug-013>`.
 
 Procedure
 ---------
@@ -25,7 +26,7 @@ Procedure
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Consumer Groups**.
+#. In the navigation pane, choose **Instance** > **Consumer Groups**.
 
 #. Delete consumer groups in any of the following ways:
 

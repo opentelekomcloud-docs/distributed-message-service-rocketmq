@@ -5,25 +5,11 @@
 Modifying RocketMQ Specifications
 =================================
 
-After creating a RocketMQ 4.8.0 instance, you can increase its specifications. :ref:`Table 1 <hrm-ug-038__table19463154616167>` lists available modification options.
+After creating a RocketMQ instance, you can increase or decrease its specifications. :ref:`Table 1 <hrm-ug-038__table5120257185816>` lists available modification options. Only one configuration type can be changed at a time.
 
-.. _hrm-ug-038__table19463154616167:
+.. _hrm-ug-038__table5120257185816:
 
-.. table:: **Table 1** Specification modification options (RocketMQ 4.8.0)
-
-   =============== ======== ========
-   Modified Object Increase Decrease
-   =============== ======== ========
-   Broker quantity Y        x
-   Storage space   Y        x
-   Broker flavor   Y        x
-   =============== ======== ========
-
-After creating a RocketMQ 5.x instance, you can increase its specifications. :ref:`Table 2 <hrm-ug-038__table78601524172017>` lists available modification options.
-
-.. _hrm-ug-038__table78601524172017:
-
-.. table:: **Table 2** Specification modification options (RocketMQ 5.x)
+.. table:: **Table 1** Specification modification options
 
    ============================= ======== ========
    Modified Object               Increase Decrease
@@ -34,20 +20,24 @@ After creating a RocketMQ 5.x instance, you can increase its specifications. :re
    Instance flavor (cluster)     Y        Y
    ============================= ======== ========
 
-Constraints
------------
+Notes and Constraints
+---------------------
 
--  You can expand the storage space 20 times.
--  When brokers are added, the storage space is proportionally expanded based on the current disk space. For example, assume that the original number of brokers of an instance is 1 and the disk size of each broker is 300 GB. If the broker quantity changes to 2 and the disk size of each broker is still 300 GB, the total disk size becomes 600 GB.
--  **rocketmq.4u8g.cluster.small** does not support broker flavor increase.
+You can expand the storage space 20 times.
+
+Impact
+------
+
+Increasing the storage space and instance specifications does not affect services.
 
 Prerequisites
 -------------
 
-A RocketMQ instance has been created and is in the **Running** state.
+-  The RocketMQ instance is in the **Running** state.
+-  The user to modify instance specifications must have the **DMS FullAccess** permission.
 
-Procedure
----------
+Expanding the Storage Space
+---------------------------
 
 #. Log in to the console.
 
@@ -59,75 +49,54 @@ Procedure
 
 #. Modify the instance specifications in either of the following ways:
 
-   -  Locate the row containing the desired instance, choose **More** > **Modify Specifications**.
-   -  Click a RocketMQ instance to go to the instance details page. In the upper right corner, choose **More** > **Modify Specifications**.
+   -  Locate the row containing the desired instance, choose **Modify Specifications**.
+   -  Click a RocketMQ instance to go to the instance details page. In the upper right corner, click **Modify Specifications**.
 
-#. Configure the broker expansion as required.
+#. Select **Storage** for **Change By** and enter a storage size.
 
-   -  RocketMQ 4.8.0: Specify the required storage space, broker quantity, or broker flavor.
+#. Click **Next**.
 
-      -  Expand the storage space.
+#. Confirm the configurations and click **Submit**.
 
-         For **Change By**, select **Storage**. For **Storage Space per Broker**, specify a new storage space, and click **Next**. Confirm the configurations and click **Submit**.
+#. Click **Back to DMS (for RocketMQ) List**. The instance is in the **Changing** state.
 
-         View the new storage space (Storage space per broker x Number of brokers) in the **Used/Available Storage Space (GB)** column in the instance list.
+   When the instance is in the **Running** state, the expanded available storage space can be viewed in **Used/Available Storage Space**.
 
-         .. note::
+   .. note::
 
-            -  Storage space expansion does not affect services.
+      Available storage space = Actual storage space - Storage space for storing logs - Disk formatting loss
 
-            -  Available storage space = Actual storage space - Storage space for storing logs - Disk formatting loss
+      For example, if the storage space is expanded to 700 GB, the storage space for storing logs is 100 GB, and the disk formatting loss is 7 GB, then the available storage space after capacity expansion will be 593 GB.
 
-               For example, if the storage space is expanded to 700 GB, the storage space for storing logs is 100 GB, and the disk formatting loss is 7 GB, then the available storage space after capacity expansion will be 593 GB.
+Increasing an Instance Flavor
+-----------------------------
 
-      -  Add brokers.
+Before scaling the instance, ensure that the subnet segments are allowed in the security group.
 
-         For **Change By**, select **Brokers**. Then, enter the number of brokers and click **Next**. Confirm the configurations and click **Submit**.
+#. Log in to the console.
 
-         View the number of brokers in the **Flavor** column in the instance list.
+#. Click |image3| in the upper left corner to select a region.
 
-         -  **Before adding brokers, ensure that the network segments allowed in the security group and the instance ports allowed externally are available. The allowed network segments are the subnet segments of the instance. The allowed port range is 10100-(10100 + 3 x Broker quantity - 1).**
-         -  **If public access is enabled and EIPs are configured for the instance, configure EIPs for the new brokers.**
+   DMS for RocketMQ instances in different regions cannot communicate with each other over an intranet. Select a nearest location for low latency and fast access.
 
-            .. note::
+#. Click |image4| and choose **Application** > **Distributed Message Service for RocketMQ** to open the console of DMS for RocketMQ.
 
-               Adding brokers does not affect the original brokers or services.
+#. Modify the instance specifications in either of the following ways:
 
-      -  Increase the broker flavor.
+   -  Locate the row containing the desired instance, choose **Modify Specifications**.
+   -  Click a RocketMQ instance to go to the instance details page. In the upper right corner, click **Modify Specifications**.
 
-         For **Change By**, select **Broker Flavor**. Then, select a new flavor and click **Next**. Confirm the configurations and click **Submit**.
+#. Select **Flavor** for **Change By** and select a new instance flavor.
 
-         View the broker flavor in the **Flavor** column of the instance list.
+#. Click **Next**.
 
-         **Increasing the broker flavor will interrupt the instance for about one minute. If the production TPS is high during the change, the change may fail. Increase the broker quantity first if needed.**
+#. Confirm the configurations and click **Submit**.
 
-   -  RocketMQ 5.x: Specify the required storage space or instance flavor.
+#. Click **Back to DMS (for RocketMQ) List**. The instance is in the **Changing** state.
 
-      -  Expand the storage space.
-
-         For **Modify By**, select **Storage**. For **Storage**, specify a new storage space, and click **Next**. Confirm the configurations and click **Submit**.
-
-         View the new storage space in the **Used/Available Storage Space (GB)** column in the instance list.
-
-         .. note::
-
-            -  Storage space expansion does not affect services.
-
-            -  Available storage space = Actual storage space - Storage space for storing logs - Disk formatting loss
-
-               For example, if the storage space is expanded to 700 GB, the storage space for storing logs is 20 GB, and the disk formatting loss is 7 GB, then the available storage space after capacity expansion will be 673 GB.
-
-      -  Increase the instance flavor.
-
-         For **Modify By**, select **Flavor**. Then, select a new flavor and click **Next**. Confirm the configurations and click **Submit**.
-
-         View the new flavor in the **Flavor** column of the instance list.
-
-         **Before scaling the instance, ensure that the subnet segments are allowed in the security group.**
-
-         .. note::
-
-            Increasing an instance flavor does not affect services.
+   When the instance is in the **Running** state, view the new instance flavor in **Flavor**.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png
+.. |image3| image:: /_static/images/en-us_image_0143929918.png
+.. |image4| image:: /_static/images/en-us_image_0000001143589128.png

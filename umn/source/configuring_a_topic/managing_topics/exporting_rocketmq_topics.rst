@@ -1,11 +1,11 @@
-:original_name: hrm-ug-009.html
+:original_name: hrm-ug-089.html
 
-.. _hrm-ug-009:
+.. _hrm-ug-089:
 
-Viewing RocketMQ Topic Details
-==============================
+Exporting RocketMQ Topics
+=========================
 
-After a topic is created, you can query its configuration and status on the console.
+The topic list information can be exported on the RocketMQ console.
 
 Prerequisites
 -------------
@@ -13,8 +13,8 @@ Prerequisites
 -  A RocketMQ instance has been created.
 -  A topic has been :ref:`created <hrm-ug-008>`.
 
-Viewing Topic Details
----------------------
+Procedure
+---------
 
 #. Log in to the console.
 
@@ -28,15 +28,10 @@ Viewing Topic Details
 
 #. In the navigation pane, choose **Instance** > **Topics**.
 
-#. Click the desired topic name to go to the topic details page.
+#. Export a topic list in either of the following ways:
 
-   The upper part of the topic details page shows the topic name, description, and message type. The lower part of the topic details page shows the total number of messages, deleted messages, topic's consumption status, and user permissions of this topic.
-
-
-   .. figure:: /_static/images/en-us_image_0000002390875281.png
-      :alt: **Figure 1** Topic details
-
-      **Figure 1** Topic details
+   -  Select the desired topic, choose **Export** > **Export selected data to an XLSX file** to export a specified topic list.
+   -  Choose **Export** > **Export all data to an XLSX file** to export the list of all topics.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png

@@ -13,7 +13,7 @@ Prerequisites
 -------------
 
 -  A RocketMQ instance has been created.
--  A topic has been created.
+-  A topic has been :ref:`created <hrm-ug-008>`.
 
 Deleting a Topic
 ----------------
@@ -28,7 +28,7 @@ Deleting a Topic
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Topics**.
+#. In the navigation pane, choose **Instance** > **Topics**.
 
 #. Delete topics in any of the following ways:
 

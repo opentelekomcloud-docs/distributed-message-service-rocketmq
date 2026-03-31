@@ -28,7 +28,7 @@ Creating a RocketMQ Consumer Group
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Consumer Groups**.
+#. In the navigation pane, choose **Instance** > **Consumer Groups**.
 
 #. Click **Create Consumer Group**.
 
@@ -50,12 +50,6 @@ Creating a RocketMQ Consumer Group
       |                                   |                                                                                                                                                                                                             |
       |                                   | Once the consumer group is created, you cannot modify its name.                                                                                                                                             |
       +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Brokers                           | This parameter is mandatory when the RocketMQ instance version is 4.8.0.                                                                                                                                    |
-      |                                   |                                                                                                                                                                                                             |
-      |                                   | Select one or multiple brokers to create consumer groups as required. The consumer groups are automatically created.                                                                                        |
-      |                                   |                                                                                                                                                                                                             |
-      |                                   | Once the consumer group is created, you cannot modify its brokers.                                                                                                                                          |
-      +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Maximum Retries                   | Maximum number of retry attempts allowed for normal messages.                                                                                                                                               |
       |                                   |                                                                                                                                                                                                             |
       |                                   | Value range: 1-16                                                                                                                                                                                           |
@@ -66,19 +60,12 @@ Creating a RocketMQ Consumer Group
       |                                   |                                                                                                                                                                                                             |
       |                                   | If this option is enabled, each message is retrieved by all consumers in the consumer group. If this option is disabled, each message is retrieved by only one consumer in the consumer group.              |
       +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Orderly                           | This parameter is mandatory when the RocketMQ instance version is 5.x.                                                                                                                                      |
-      |                                   |                                                                                                                                                                                                             |
-      |                                   | If this option is enabled, consumers consume messages in sequence. Orderly consumption ensures sequential consumption by message sending. In this case, earlier messages are consumed before later messages |
+      | Orderly                           | If this option is enabled, consumers consume messages in sequence. Orderly consumption ensures sequential consumption by message sending. In this case, earlier messages are consumed before later messages |
       +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #. Click **OK**.
 
-   View **Consumption Model** on the consumer group list page once a v4.8.0 consumer group is created.
-
-   -  CLUSTERING: cluster consumption mode. RocketMQ consumes any message by any consumer in the consumer group.
-   -  BROADCASTING: broadcast consumption mode. RocketMQ pushes each message to all consumers in the consumer group to ensure that the message is consumed by each consumer.
-
-   **Consumption Model** is **--** when the consumer group is offline.
+   When a consumer group is created, **Consumer Group Status** is displayed in the consumer group list. The value can be **Online** or **Offline**.
 
 .. |image1| image:: /_static/images/en-us_image_0143929918.png
 .. |image2| image:: /_static/images/en-us_image_0000001143589128.png

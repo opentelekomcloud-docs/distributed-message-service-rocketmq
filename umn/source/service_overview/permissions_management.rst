@@ -23,7 +23,7 @@ DMS is a project-level service deployed and accessed in specific physical region
 You can grant users permissions by using roles and policies.
 
 -  Roles: A type of coarse-grained authorization mechanism that provides only a limited number of service-level roles. When using roles to grant permissions, you also need to assign dependency roles. However, roles are not an ideal choice for fine-grained authorization and secure access control.
--  Policies: A fine-grained authorization strategy that defines permissions required to perform operations on specific cloud resources under certain conditions. This mechanism allows for more flexible policy-based authorization for securer access control. For example, you can grant IAM users only the permissions for managing DMS instances. Most policies define permissions based on APIs. For the API actions supported by DMS, see `Permissions and Supported Actions <https://docs.otc.t-systems.com/en-us/api/dms/api-grant-policy.html>`__.
+-  Policies: A fine-grained authorization strategy that defines permissions required to perform operations on specific cloud resources under certain conditions. This mechanism allows for more flexible policy-based authorization for more secure access control. For example, you can grant IAM users only the permissions for managing DMS instances. Most policies define permissions based on APIs. For the API actions supported by DMS, see `Permissions and Supported Actions <https://docs.otc.t-systems.com/en-us/api/dms/api-grant-policy.html>`__.
 
 :ref:`Table 1 <hrm-pd-011__en-us_topic_0170871404_table8486434381>` lists all the system-defined roles and policies supported by DMS.
 

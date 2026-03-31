@@ -26,7 +26,7 @@ Procedure
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane on the left, choose **Instance Diagnosis**.
+#. In the navigation pane on the left, choose **Analysis & Diagnosis** > **Instance Diagnosis**.
 
 #. Select a consumer group and click **Start Diagnose**.
 
@@ -59,7 +59,7 @@ Exporting Diagnosis Records
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Instance Diagnosis**.
+#. In the navigation pane on the left, choose **Analysis & Diagnosis** > **Instance Diagnosis**.
 
 #. Export instance diagnosis records in either of the following ways:
 
@@ -79,7 +79,7 @@ Deleting Diagnosis Records
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane on the left, choose **Instance Diagnosis**.
+#. In the navigation pane on the left, choose **Analysis & Diagnosis** > **Instance Diagnosis**.
 
 #. Use either of the following methods to delete diagnosis records:
 

@@ -31,23 +31,27 @@ Viewing Basic Information of a RocketMQ Instance
 
    .. table:: **Table 1** RocketMQ instance status description
 
-      +-----------------------------------+---------------------------------------------------------------+
-      | Status                            | Description                                                   |
-      +===================================+===============================================================+
-      | Creating                          | The instance is being created.                                |
-      +-----------------------------------+---------------------------------------------------------------+
-      | Running                           | The instance is running properly.                             |
-      |                                   |                                                               |
-      |                                   | Only instances in the **Running** state can provide services. |
-      +-----------------------------------+---------------------------------------------------------------+
-      | Faulty                            | The instance is not running properly.                         |
-      +-----------------------------------+---------------------------------------------------------------+
-      | Changing                          | The public access configurations are being modified.          |
-      +-----------------------------------+---------------------------------------------------------------+
-      | Change failed                     | The public access configurations failed to be modified.       |
-      +-----------------------------------+---------------------------------------------------------------+
+      +-----------------------------------+-------------------------------------------------------------------------------------------------------------+
+      | Status                            | Description                                                                                                 |
+      +===================================+=============================================================================================================+
+      | Creating                          | The instance is being created.                                                                              |
+      +-----------------------------------+-------------------------------------------------------------------------------------------------------------+
+      | Creation failed                   | The instance failed to be created.                                                                          |
+      +-----------------------------------+-------------------------------------------------------------------------------------------------------------+
+      | Running                           | The instance is running properly.                                                                           |
+      |                                   |                                                                                                             |
+      |                                   | Only instances in the **Running** state can provide services.                                               |
+      +-----------------------------------+-------------------------------------------------------------------------------------------------------------+
+      | Faulty                            | The instance is not running properly.                                                                       |
+      +-----------------------------------+-------------------------------------------------------------------------------------------------------------+
+      | Changing                          | The instance specifications or public access configurations are being modified.                             |
+      +-----------------------------------+-------------------------------------------------------------------------------------------------------------+
+      | Change failed                     | The instance specifications or public access configurations failed to be modified.                          |
+      |                                   |                                                                                                             |
+      |                                   | You cannot restart, delete, or modify an instance in the **Change failed** state. Contact customer service. |
+      +-----------------------------------+-------------------------------------------------------------------------------------------------------------+
 
-#. Click a RocketMQ instance name to go to the instance details page.
+#. Click a RocketMQ instance name to go to the instance basic information page.
 
 Modifying Basic Information of a RocketMQ Instance
 --------------------------------------------------

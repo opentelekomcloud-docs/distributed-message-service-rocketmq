@@ -5,7 +5,7 @@
 Managing RocketMQ Dead Letters
 ==============================
 
-When a message fails to be consumed and retried, RocketMQ does not discard it immediately, but forwards it to a specific dead letter queue. Messages in such a queue are dead letter messages. These messages can be sent and consumed again after faults are rectified. If they cannot be processed temporarily, they can be exported and saved in case of deletion after expiration.
+When a message fails to be consumed and retried, RocketMQ does not discard it immediately, but forwards it to a specific dead letter queue. Messages in such a queue are dead letter messages. These messages can be redelivered and consumed again after faults are rectified. If they cannot be processed temporarily, they can be exported and saved in case of deletion after expiration.
 
 Prerequisites
 -------------
@@ -52,18 +52,18 @@ Querying Dead Letter Messages
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Dead Letter Queues**.
+#. In the navigation pane, choose **Instance** > **Dead Letter Queues**.
 
 #. Query dead letter messages in either of the following ways:
 
-   -  By group: Select the name of the consumer group to be queried from the **Group** drop-down list. For **Stored**, select a time period.
-   -  By message ID: Select the name of the consumer group to be queried from the **Group** drop-down list, enter the message ID of the dead letter message to be queried, and click **Search**.
-   -  By message key: Select the name of the consumer group to be queried from the **Group** drop-down list, enter the message key of the dead letter message to be queried, and click **Search**.
+   -  By group: Select the name of the consumer group to be queried from the **Consumer Group** drop-down list. For **Stored**, select a time period.
+   -  By message ID: Select the name of the consumer group to be queried from the **Consumer Group** drop-down list, enter the message ID of the dead letter message to be queried, and click **Search**.
+   -  By message key: Select the name of the consumer group to be queried from the **Consumer Group** drop-down list, enter the message key of the dead letter message to be queried, and click **Search**.
 
 Resending a Dead Letter Message
 -------------------------------
 
-Dead letter messages cannot be retrieved by consumers. Locate and rectify the fault, and then resend dead letter messages on the console.
+Messages that cannot be properly processed (consumption exception or return failure) will be in dead letter queues. They can be redelivered to consumers in the dead letter queues on the console.
 
 #. Log in to the console.
 
@@ -75,7 +75,7 @@ Dead letter messages cannot be retrieved by consumers. Locate and rectify the fa
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Dead Letter Queues**.
+#. In the navigation pane, choose **Instance** > **Dead Letter Queues**.
 
 #. Resend dead letter messages in either of the following ways:
 
@@ -97,7 +97,7 @@ Exporting Dead Letter Messages
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Dead Letter Queues**.
+#. In the navigation pane, choose **Instance** > **Dead Letter Queues**.
 
 #. Click **Export Message** in the row containing the desired message.
 

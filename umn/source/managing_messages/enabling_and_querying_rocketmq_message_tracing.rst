@@ -12,8 +12,7 @@ The following procedures describe how to enable and query message tracing in Jav
 Prerequisites
 -------------
 
--  Transactional message tracing is supported only if the producer Java client is v4.9.0 or later. If your client is earlier than v4.9.0, upgrade it to a later version.
--  For RocketMQ instances with SSL enabled, message tracing is supported only when the producer and consumer Java clients are v4.9.2 or later. If the version does not meet the requirement, upgrade it first.
+Transactional message tracing is available only for Java 4.9.0 and later producers. For RocketMQ instances with SSL enabled, message tracing is available only for Java 4.9.2 and later producers and consumers.
 
 Enabling RocketMQ Message Tracing (Java)
 ----------------------------------------
@@ -55,14 +54,12 @@ Do as follows to enable message tracing on clients:
 
       go version
 
-   If the following information is displayed, Go has been installed.
+   If the following information is displayed, Go has been installed. If Go is not installed, `download and install <https://go.dev/dl/go1.16.5.linux-amd64.tar.gz>`__ it.
 
    .. code-block:: console
 
       [root@ecs-test sarama]# go version
       go version go1.16.5 linux/amd64
-
-   If Go is not installed, `download <https://go.dev/dl/go1.16.5.linux-amd64.tar.gz>`__ and install it.
 
 #. Go to the **bin** directory where the **Go** script is in.
 
@@ -71,9 +68,7 @@ Do as follows to enable message tracing on clients:
    .. code-block::
 
       module rocketmq-example-go
-
       go 1.13
-
       require (
           github.com/apache/rocketmq-client-go/v2 v2.1.0
       )
@@ -128,6 +123,8 @@ Do as follows to enable message tracing on clients:
           }
       }
 
+   **192.168.0.1:8100** is the connection address and port of the RocketMQ instance. Obtain yours from **Basic Information** > **Connection** on the RocketMQ console.
+
 #. Enable message tracing on the consumer. Replace the information in bold with the actual values.
 
    .. code-block::
@@ -179,6 +176,22 @@ Do as follows to enable message tracing on clients:
           }
       }
 
+   To obtain the values in bold in the preceding code, see :ref:`Table 1 <hrm-ug-028__table2032782610313>`.
+
+   .. _hrm-ug-028__table2032782610313:
+
+   .. table:: **Table 1** Obtaining the values in bold
+
+      +------------------+-------------------------------------------------------------+----------------------------------------------------------------------+
+      | Value            | Description                                                 | How to Obtain                                                        |
+      +==================+=============================================================+======================================================================+
+      | 192.168.0.1:8100 | Connection address and port of the RocketMQ instance        | **Basic Information** > **Connection** page on the RocketMQ console. |
+      +------------------+-------------------------------------------------------------+----------------------------------------------------------------------+
+      | testGroup        | Name of the consumer group created in the RocketMQ instance | **Consumer Groups** page on the RocketMQ console.                    |
+      +------------------+-------------------------------------------------------------+----------------------------------------------------------------------+
+      | TopicTest        | Name of the topic created in the RocketMQ instance          | **Topics** page on the RocketMQ console.                             |
+      +------------------+-------------------------------------------------------------+----------------------------------------------------------------------+
+
 Enabling RocketMQ Message Tracing (Spring)
 ------------------------------------------
 
@@ -208,13 +221,9 @@ Do as follows to enable message tracing on clients:
           ...
       }
 
-   Replace the information in bold with the actual values.
+   To obtain the values in bold in the preceding code, see :ref:`Table 1 <hrm-ug-028__table2032782610313>`.
 
-For details, see `Message Tracing <https://github.com/apache/rocketmq-spring/wiki/Message-Tracing>`__.
-
-.. caution::
-
-   The default value of parameter **accessChannel** is **LOACL**. Use the default value.
+For more information, see `Message Tracing <https://github.com/apache/rocketmq-spring/wiki/Message-Tracing>`__. To configure parameter **accessChannel**, use the default value **LOCAL**.
 
 Viewing the Message Trace
 -------------------------
@@ -229,23 +238,23 @@ Viewing the Message Trace
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Message Query**.
+#. In the navigation pane, choose **Instance** > **Message Query**.
 
 #. Query messages in either of the following ways:
 
-   -  By topic: Select the topic to be queried from the **Topic** drop-down list and the queue to the queried from the **Queue** drop-down list (only for RocketMQ 4.8.0). For **Stored**, select a time period.
+   -  By topic: Select the topic to be queried from the **Topic** drop-down list. For **Stored**, select a time period.
    -  By message ID: Select the name of the topic to be queried from the **Topic** drop-down list, enter the ID of the message to be queried, and click **Search**.
    -  By message key: Select the name of the topic to be queried from the **Topic** drop-down list, enter the key of the message to be queried, and click **Search**.
 
-#. Locate the row containing the message to be queried. Click **Message Trace**.
+#. Locate the row containing the message to be queried. Click **View Message Trace**.
 
 #. View the message trace to check whether the message is successfully produced or consumed.
 
-   :ref:`Table 1 <hrm-ug-028__table8707194615415>` describes message trace parameters.
+   :ref:`Table 2 <hrm-ug-028__table8707194615415>` describes message trace parameters.
 
    .. _hrm-ug-028__table8707194615415:
 
-   .. table:: **Table 1** Message trace parameters
+   .. table:: **Table 2** Message trace parameters
 
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter                         | Description                                                                                                                                   |

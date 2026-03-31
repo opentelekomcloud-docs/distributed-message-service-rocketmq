@@ -2,8 +2,8 @@
 
 .. _hrm-ug-086:
 
-Deleting Migration Tasks
-========================
+Deleting RocketMQ Instance Migration Tasks
+==========================================
 
 Scenario
 --------
@@ -23,7 +23,7 @@ Procedure
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Metadata Migration**.
+#. In the navigation pane, choose **Cloud Migration** > **Metadata Migration**.
 
 #. Delete migration tasks in either of the following ways:
 

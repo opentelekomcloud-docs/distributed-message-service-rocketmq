@@ -5,8 +5,6 @@
 Does RocketMQ Support Throttling?
 =================================
 
-Yes. This function is available for RocketMQ 5.x, but not for RocketMQ 4.8.0.
-
 Throttling is triggered under the following circumstances:
 
 #. There are many message production and consumption requests within a short period of time.

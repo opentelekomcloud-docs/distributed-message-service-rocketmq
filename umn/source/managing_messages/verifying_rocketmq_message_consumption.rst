@@ -27,7 +27,7 @@ Verifying RocketMQ Message Consumption
 
 #. Click a RocketMQ instance to go to the instance details page.
 
-#. In the navigation pane, choose **Message Query**.
+#. In the navigation pane, choose **Instance** > **Message Query**.
 
 #. Set search criteria on the top of the page.
 
